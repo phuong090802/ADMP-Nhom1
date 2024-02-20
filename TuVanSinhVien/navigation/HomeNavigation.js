@@ -1,18 +1,19 @@
 import {
   Feather,
-  FontAwesome,
-  Ionicons,
+  MaterialCommunityIcons,
   MaterialIcons,
 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StyleSheet } from 'react-native';
 
-import HomeHeader from '../components/HomeHeader';
 import { Colors, ICON_SIZE } from '../constants/styles';
-import Account from '../screens/Account';
 import Consulter from '../screens/Consulter';
 import FAQ from '../screens/FAQ';
 import Home from '../screens/Home';
+import NewQuestion from '../screens/NewQuestion';
 import News from '../screens/News';
+import HomeHeader from '../components/HomeHeader';
+import Header from '../components/Header';
 
 const Tab = createBottomTabNavigator();
 export default function HomeNavigation() {
@@ -21,22 +22,21 @@ export default function HomeNavigation() {
       initialRouteName='Home'
       screenOptions={{
         tabBarShowLabel: false,
-        headerTitleStyle: {
-          fontWeight: 'bold',
-          color: Colors.primary,
-          fontSize: 24,
-        },
+
+        headerShown: false,
 
         tabBarActiveTintColor: 'white',
         tabBarActiveBackgroundColor: Colors.primary,
 
         tabBarInactiveTintColor: 'black',
         tabBarInactiveBackgroundColor: Colors.black10,
+
         tabBarItemStyle: {
-          borderRadius: 12,
-          marginVertical: 12,
+          borderRadius: 20,
           marginHorizontal: 16,
+          marginVertical: 8,
         },
+
         tabBarStyle: {
           height: 64,
         },
@@ -47,13 +47,12 @@ export default function HomeNavigation() {
         component={Home}
         options={{
           title: 'Trang chủ',
-
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name='home-filled' size={ICON_SIZE} color={color} />
+            <MaterialIcons name='home' size={ICON_SIZE} color={color} />
           ),
-          headerRight: () => <HomeHeader />,
         }}
       />
+
       <Tab.Screen
         name='Question'
         component={FAQ}
@@ -64,6 +63,36 @@ export default function HomeNavigation() {
               name='frequently-asked-questions'
               size={ICON_SIZE}
               color={color}
+              style={styles.icon}
+            />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name='NewQuestion'
+        component={NewQuestion}
+        options={{
+          title: 'Đặt câu hỏi',
+
+          tabBarItemStyle: {
+            borderRadius: 24,
+            marginHorizontal: 18,
+            marginVertical: 4,
+            backgroundColor: 'white',
+          },
+
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name='plus'
+              size={40}
+              color='blue'
+              style={[
+                styles.newQuestionIcon,
+                focused
+                  ? styles.newQuestionIconInactive
+                  : styles.newQuestionIconActive,
+              ]}
             />
           ),
         }}
@@ -75,7 +104,7 @@ export default function HomeNavigation() {
         options={{
           title: 'Danh sách tư vấn viên',
           tabBarIcon: ({ color }) => (
-            <FontAwesome name='group' size={ICON_SIZE} color={color} />
+            <MaterialIcons name='groups' size={ICON_SIZE} color={color} />
           ),
         }}
       />
@@ -86,21 +115,32 @@ export default function HomeNavigation() {
         options={{
           title: 'Tin tức',
           tabBarIcon: ({ color }) => (
-            <Ionicons name='newspaper' size={ICON_SIZE} color={color} />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name='User'
-        component={Account}
-        options={{
-          title: 'Tài khoản',
-          tabBarIcon: ({ color }) => (
-            <Feather name='user' size={ICON_SIZE} color={color} />
+            <MaterialCommunityIcons
+              name='newspaper-variant-outline'
+              size={ICON_SIZE}
+              color={color}
+            />
           ),
         }}
       />
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  newQuestionIcon: {
+    textAlign: 'center',
+    verticalAlign: 'middle',
+    borderRadius: 24,
+    borderWidth: 2,
+    borderColor: Colors.primary,
+  },
+  newQuestionIconInactive: {
+    backgroundColor: Colors.primary,
+    color: 'white',
+  },
+  newQuestionIconActive: {
+    backgroundColor: 'white',
+    color: Colors.primary,
+  },
+});

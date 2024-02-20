@@ -1,10 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 import { Feather, Entypo } from '@expo/vector-icons';
 
-import IconButton from './UI/IconButton';
-import BadgeButton from './UI/BadgeButton';
-
-const ICON_SIZE = 24;
+import IconButton from './UI/button/IconButton';
+import BadgeButton from './UI/button/BadgeButton';
+import { ICON_SIZE } from '../constants/styles';
 
 export default function HomeHeader() {
   return (

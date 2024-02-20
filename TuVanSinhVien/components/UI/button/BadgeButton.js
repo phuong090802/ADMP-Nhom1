@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet } from 'react-native';
 
-import Badge from './Badge';
+import Badge from '../Badge';
 
 export default function BadgeButton({ children }) {
   return (

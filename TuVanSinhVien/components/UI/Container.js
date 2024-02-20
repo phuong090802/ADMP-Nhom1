@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 
 import { Colors } from '../../constants/styles';
 
-export default function Wrap({ children, style }) {
+export default function Container({ children, style }) {
   return (
     <View style={[styles.container, style]}>
       <View style={styles.form}>{children}</View>
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.ghostWhite,
   },
   form: {
-    margin: 32,
+    marginVertical: 16,
+    marginHorizontal:32,
   },
 });

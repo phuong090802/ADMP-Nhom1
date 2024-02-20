@@ -10,5 +10,4 @@ export const Colors = {
   ghostWhite: '#ededed',
 };
 
-export const ICON_SIZE = 24;
-export const BACK_ICON_SIZE = 26 ;
+export const ICON_SIZE = 30;

@@ -8,13 +8,13 @@ const Stack = createNativeStackNavigator();
 
 export default function RootNavigation() {
   return (
-    <Stack.Navigator initialRouteName='Register'>
+    <Stack.Navigator
+      initialRouteName='HomeNavigation'
+      screenOptions={{ headerShown: false }}
+    >
       <Stack.Screen
         name='HomeNavigation'
         component={HomeNavigation}
-        options={{
-          headerShown: false,
-        }}
       />
       <Stack.Screen
         name='Login'
@@ -27,7 +27,6 @@ export default function RootNavigation() {
         name='Register'
         component={Register}
         options={{
-          headerShown: false,
           title: 'Đăng ký',
         }}
       />

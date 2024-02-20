@@ -1,56 +1,64 @@
-import { LinearGradient } from 'expo-linear-gradient';
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { Keyboard, StyleSheet, View } from 'react-native';
 
+import { useCallback, useState } from 'react';
 import RegisterForm from '../components/RegisterForm';
-import Button from '../components/UI/Button';
-import FlatButton from '../components/UI/FlatButton';
+import Container from '../components/UI/Container';
+import CustomLinearGradient from '../components/UI/CustomLinearGradient';
+import CustomScrollView from '../components/UI/CustomScrollView';
+import GoBack from '../components/UI/GoBack';
 import LogoHCMUTE from '../components/UI/LogoHCMUTE';
-import Wrap from '../components/UI/Wrap';
-import { Colors, BACK_ICON_SIZE } from '../constants/styles';
+import SafeContainer from '../components/UI/SafeContainer';
+import PrimaryButton from '../components/UI/button/PrimaryButton';
+import FlatButton from '../components/UI/button/FlatButton';
 
 export default function Register() {
+  const [values, setValues] = useState({
+    fullName: '',
+    phoneNumber: '',
+    email: '',
+    occupation: 'Sinh viên',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleChangeValues = useCallback(
+    (identified, value) => {
+      setValues((prevValues) => ({ ...prevValues, [identified]: value }));
+    },
+    [setValues]
+  );
+
+  function handlePress() {
+    Keyboard.dismiss()
+    console.log(values);
+  }
+
   return (
-    <ScrollView 
-    contentContainerStyle={{ flexGrow: 1 }}
-    >
-    <LinearGradient
-      style={styles.container}
-      start={{ x: 0, y: 0.5 }}
-      end={{ x: 1, y: 0.5 }}
-      colors={[Colors.primary, Colors.secondary]}
-    >
-        <View style={styles.logo}>
-          <LogoHCMUTE />
-        </View>
-        <Wrap style={styles.wrap}>
-          <View style={styles.back}>
-            <View>
-              <AntDesign
-                name='left'
-                size={BACK_ICON_SIZE}
-                color={Colors.black75}
-                style={{ margin: 0, padding: 0 }}
-              />
+    <SafeContainer>
+      <CustomScrollView>
+        <CustomLinearGradient style={styles.root}>
+          <View style={styles.logo}>
+            <LogoHCMUTE />
+          </View>
+          <Container style={styles.container}>
+            <GoBack>Đăng ký</GoBack>
+            <RegisterForm values={values} onChangeValues={handleChangeValues} />
+            <View style={styles.mainButton}>
+              <PrimaryButton onPress={handlePress}>Đăng ký</PrimaryButton>
             </View>
-            <Text style={styles.title}>Đăng ký</Text>
-          </View>
-          <RegisterForm />
-          <View style={styles.mainButton}>
-            <Button>Đăng ký</Button>
-          </View>
-          <View style={styles.groupButtons}>
-            <FlatButton>Đăng nhập</FlatButton>
-            <FlatButton>Quên mật khẩu ?</FlatButton>
-          </View>
-        </Wrap>
-    </LinearGradient>
-      </ScrollView>
+            <View style={styles.groupButtons}>
+              <FlatButton>Đăng nhập</FlatButton>
+              <FlatButton>Quên mật khẩu ?</FlatButton>
+            </View>
+          </Container>
+        </CustomLinearGradient>
+      </CustomScrollView>
+    </SafeContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -60,22 +68,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  back: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  title: {
-    fontWeight: '900',
-    fontSize: 20,
-    marginHorizontal: 12,
-    marginVertical: 16,
-  },
-  wrap: {
-    flex: 3,
+  container: {
     justifyContent: 'flex-end',
   },
   mainButton: {
-    marginVertical: 48,
+    marginVertical: 44,
   },
   groupButtons: {
     justifyContent: 'space-between',
