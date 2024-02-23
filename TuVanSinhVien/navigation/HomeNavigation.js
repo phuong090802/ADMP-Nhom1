@@ -7,19 +7,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
 
 import { Colors, ICON_SIZE } from '../constants/styles';
-import Consulter from '../screens/Consulter';
+import Counsellor from '../screens/Counsellor';
 import FAQ from '../screens/FAQ';
 import Home from '../screens/Home';
 import NewQuestion from '../screens/NewQuestion';
 import News from '../screens/News';
-import HomeHeader from '../components/HomeHeader';
-import Header from '../components/Header';
 
 const Tab = createBottomTabNavigator();
 export default function HomeNavigation() {
   return (
     <Tab.Navigator
       initialRouteName='Home'
+      // initialRouteName='NewQuestion'
       screenOptions={{
         tabBarShowLabel: false,
 
@@ -46,7 +45,6 @@ export default function HomeNavigation() {
         name='Home'
         component={Home}
         options={{
-          title: 'Trang chủ',
           tabBarIcon: ({ color }) => (
             <MaterialIcons name='home' size={ICON_SIZE} color={color} />
           ),
@@ -54,10 +52,9 @@ export default function HomeNavigation() {
       />
 
       <Tab.Screen
-        name='Question'
+        name='FAQ'
         component={FAQ}
         options={{
-          title: 'Thư viện câu hỏi',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name='frequently-asked-questions'
@@ -73,8 +70,6 @@ export default function HomeNavigation() {
         name='NewQuestion'
         component={NewQuestion}
         options={{
-          title: 'Đặt câu hỏi',
-
           tabBarItemStyle: {
             borderRadius: 24,
             marginHorizontal: 18,
@@ -99,10 +94,9 @@ export default function HomeNavigation() {
       />
 
       <Tab.Screen
-        name='Consulter'
-        component={Consulter}
+        name='Counsellor'
+        component={Counsellor}
         options={{
-          title: 'Danh sách tư vấn viên',
           tabBarIcon: ({ color }) => (
             <MaterialIcons name='groups' size={ICON_SIZE} color={color} />
           ),
@@ -113,7 +107,6 @@ export default function HomeNavigation() {
         name='News'
         component={News}
         options={{
-          title: 'Tin tức',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name='newspaper-variant-outline'

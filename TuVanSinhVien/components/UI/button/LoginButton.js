@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 
+import { FONT } from '../../../constants/styles';
 
 export default function LoginButton({ children, onPress }) {
   return (
@@ -31,6 +32,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'black',
     fontSize: 16,
-    fontFamily: 'Bahnschrift-1',
+    fontFamily: FONT,
   },
 });

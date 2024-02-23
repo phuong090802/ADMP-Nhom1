@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "TuVanSinhVien",
+    "name": "Tư Vấn Sinh Viên",
     "slug": "TuVanSinhVien",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": ["**/*"],

@@ -1,12 +1,13 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRef } from 'react';
 
-import { Colors, ICON_SIZE } from '../constants/styles';
-import IconInput from './UI/input/IconInput';
-import PasswordInput from './UI/input/PasswordInput';
+import { Colors } from '../../../constants/styles';
+import IconInput from '../input/IconInput';
+import PasswordInput from '../input/PasswordInput';
 
-export default function LoginForm({ values, onChangeValues }) {
-  const phoneNumberInputRef = useRef();
+const ICON_SIZE = 24;
+export default function LoginForm({ values, onValuesChange }) {
+  const usernameInputRef = useRef();
   const passwordInputRef = useRef();
 
   const handleFocus = (ref) => {
@@ -16,7 +17,7 @@ export default function LoginForm({ values, onChangeValues }) {
   };
 
   function handleInputChange(identified, enteredValue) {
-    onChangeValues(identified, enteredValue);
+    onValuesChange(identified, enteredValue);
   }
 
   return (
@@ -27,11 +28,11 @@ export default function LoginForm({ values, onChangeValues }) {
         placeholderTextColor={Colors.black50}
         inputMode='tel'
         textContentType='telephoneNumber'
-        ref={phoneNumberInputRef}
+        ref={usernameInputRef}
         returnKeyType='next'
         maxLength={10}
         value={values.phoneNumber}
-        onChangeText={handleInputChange.bind(this, 'phoneNumber')}
+        onChangeText={handleInputChange.bind(this, 'username')}
         onSubmitEditing={handleFocus.bind(this, passwordInputRef)}
       >
         <MaterialCommunityIcons

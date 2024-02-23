@@ -1,5 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 
+import { LOGO_FONT } from '../../constants/styles';
+
 export default function LogoHCMUTE() {
   return (
     <View style={styles.container}>
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontFamily: 'Bungee-Regular',
+    fontFamily: LOGO_FONT,
     fontSize: 31,
     lineHeight: 31,
   },

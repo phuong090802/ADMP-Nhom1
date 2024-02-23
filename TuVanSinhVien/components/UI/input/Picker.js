@@ -1,9 +1,10 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Colors } from '../../../constants/styles';
 
-const Picker = ({ options, onChange }) => {
+import { Colors, FONT } from '../../../constants/styles';
+
+export default function Picker({ options, onChange }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState();
 
@@ -72,7 +73,7 @@ const Picker = ({ options, onChange }) => {
       </Modal>
     </>
   );
-};
+}
 
 const styles = StyleSheet.create({
   root: {
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.black50,
   },
   modalContent: {
+    // paddingVertical: 8,
     backgroundColor: 'white',
     borderRadius: 10,
     elevation: 2,
@@ -109,16 +111,14 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingStart: 12,
     paddingEnd: 200,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.ghostWhite,
+    // borderBottomWidth: 1,
+    // borderBottomColor: Colors.ghostWhite,
   },
   text: {
     fontSize: 16,
-    fontFamily: 'Bahnschrift-1',
+    fontFamily: FONT,
   },
   pressed: {
     opacity: 0.6,
   },
 });
-
-export default Picker;

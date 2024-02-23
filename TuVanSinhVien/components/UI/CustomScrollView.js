@@ -1,9 +1,9 @@
 import { StyleSheet, ScrollView } from 'react-native';
 
-export default function CustomScrollView({ children }) {
+export default function CustomScrollView({ children, style }) {
   return (
     <ScrollView
-      contentContainerStyle={styles.root}
+      contentContainerStyle={[styles.root, style]}
       keyboardShouldPersistTaps='handled'
     >
       {children}

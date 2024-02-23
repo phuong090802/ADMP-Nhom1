@@ -8,6 +8,11 @@ export const Colors = {
   black10: 'rgba(25, 28, 25, 0.1)',
   error: '#e03922',
   ghostWhite: '#ededed',
+  disabled: '#6B7280',
 };
+
+export const LOGO_FONT = 'Bungee-Regular';
+
+export const FONT = 'Bahnschrift-1';
 
 export const ICON_SIZE = 30;

@@ -1,8 +1,8 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
-import { Colors, ICON_SIZE } from '../../../constants/styles';
+
+import { Colors, FONT, ICON_SIZE } from '../../../constants/styles';
 
 const PasswordInput = forwardRef(
   ({ placeholder, placeholderTextColor, ...props }, ref) => {
@@ -78,6 +78,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     paddingVertical: 9,
     fontSize: 16,
-    fontFamily: 'Bahnschrift-1',
+    fontFamily: FONT,
   },
 });

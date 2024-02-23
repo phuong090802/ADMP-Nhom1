@@ -1,12 +1,15 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 
-import { Colors } from '../../../constants/styles';
+import { Colors, FONT } from '../../../constants/styles';
 
-function FlatButton({ children, onPress }) {
+function FlatButton({ children, onPress, style }) {
   return (
     <Pressable
       onPress={onPress}
-      style={({ pressed }) => [styles.container, pressed && styles.pressed]}
+      style={({ pressed }) => [
+        styles.container.style,
+        pressed && styles.pressed,
+      ]}
     >
       <Text style={styles.text}>{children}</Text>
     </Pressable>
@@ -26,6 +29,6 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
     color: Colors.black75,
-    fontFamily: 'Bahnschrift-1',
+    fontFamily: FONT,
   },
 });

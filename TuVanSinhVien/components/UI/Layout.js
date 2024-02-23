@@ -1,7 +1,10 @@
 import { StyleSheet, View } from 'react-native';
-import Header from './Header';
+
+import Header from './header/Header';
 
 export default function Layout({ children }) {
+
+
   return (
     <View style={styles.root}>
       <Header />

@@ -1,14 +1,19 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 
-import { Colors } from '../../../constants/styles';
+import { Colors, FONT } from '../../../constants/styles';
 
-export default function PrimaryButton({ children, onPress }) {
+export default function PrimaryButton({ children, disabled, onPress, style }) {
   return (
     <Pressable
-    onPress={onPress}
-      style={({ pressed }) => [styles.container, pressed && styles.pressed]}
+      onPress={onPress}
+      disabled={disabled}
+      style={({ pressed }) => [
+        styles.container,
+        disabled && styles.disable,
+        pressed && styles.pressed,
+      ]}
     >
-      <Text style={styles.text}>{children}</Text>
+      <Text style={[styles.text, style]}>{children}</Text>
     </Pressable>
   );
 }
@@ -33,6 +38,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'Bahnschrift-1',
+    fontFamily: FONT,
+  },
+  disable: {
+    backgroundColor: Colors.disabled,
   },
 });

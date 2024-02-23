@@ -1,8 +1,8 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
-
-import { Colors } from '../../constants/styles';
 import { useNavigation } from '@react-navigation/native';
+
+import { Colors, FONT } from '../../constants/styles';
 
 export default function GoBack({ children }) {
   const navigation = useNavigation();
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginVertical: 12,
     color: Colors.black75,
-    fontFamily: 'Bahnschrift-1',
+    fontFamily: FONT,
     fontWeight: 'bold'
   },
 });

@@ -1,12 +1,13 @@
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { useRef } from 'react';
 
-import { Colors, ICON_SIZE } from '../constants/styles';
-import IconInput from './UI/input/IconInput';
-import IconPicker from './UI/input/IconPicker';
-import PasswordInput from './UI/input/PasswordInput';
+import { Colors } from '../../../constants/styles';
+import IconInput from '../input/IconInput';
+import IconPicker from '../input/IconPicker';
+import PasswordInput from '../input/PasswordInput';
 
-export default function RegisterForm({ values, onChangeValues }) {
+const ICON_SIZE = 24;
+export default function RegisterForm({ values, onValuesChange }) {
   const fullNameInputRef = useRef();
   const phoneNumberInputRef = useRef();
   const emailInputRef = useRef();
@@ -25,7 +26,7 @@ export default function RegisterForm({ values, onChangeValues }) {
   }
 
   function handleInputChange(identified, enteredValue) {
-    onChangeValues(identified, enteredValue);
+    onValuesChange(identified, enteredValue);
   }
 
   return (
@@ -38,8 +39,6 @@ export default function RegisterForm({ values, onChangeValues }) {
         returnKeyType='next'
         autoCapitalize='words'
         ref={fullNameInputRef}
-        multiline={true}
-        maxLength={64}
         value={values.fullName}
         onChangeText={handleInputChange.bind(this, 'fullName')}
         onSubmitEditing={handleFocus.bind(this, phoneNumberInputRef)}
@@ -80,8 +79,6 @@ export default function RegisterForm({ values, onChangeValues }) {
         textContentType='name'
         ref={emailInputRef}
         returnKeyType='next'
-        multiline={true}
-        maxLength={64}
         value={values.email}
         onChangeText={handleInputChange.bind(this, 'email')}
         onSubmitEditing={handleFocus.bind(this, occupationInputRef)}
@@ -111,8 +108,10 @@ export default function RegisterForm({ values, onChangeValues }) {
         placeholderTextColor={Colors.black50}
         textContentType='newPassword'
         ref={passwordInputRef}
+        returnKeyType='next'
         value={values.password}
         onChangeText={handleInputChange.bind(this, 'password')}
+        onSubmitEditing={handleFocus.bind(this, confirmPasswordInputRef)}
       />
 
       <PasswordInput

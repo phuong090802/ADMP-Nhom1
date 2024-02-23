@@ -1,8 +1,10 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
+import { FONT } from '../../../constants/styles';
+
 const IconInput = forwardRef(
-  ({ children, placeholder, placeholderTextColor, ...props }, ref) => {
+  ({style, children, placeholder, placeholderTextColor, ...props }, ref) => {
     const textInputRef = useRef();
 
     useImperativeHandle(ref, () => ({
@@ -14,7 +16,7 @@ const IconInput = forwardRef(
     }));
 
     return (
-      <View style={styles.root}>
+      <View style={[styles.root, style]}>
         {children}
         <View style={styles.container}>
           <TextInput
@@ -50,6 +52,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     paddingVertical: 9,
     fontSize: 16,
-    fontFamily: 'Bahnschrift-1',
+    fontFamily: FONT,
   },
 });
