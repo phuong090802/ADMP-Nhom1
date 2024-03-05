@@ -10,7 +10,7 @@ import LogoHCMUTE from '../../components/UI/LogoHCMUTE';
 import FlatButton from '../../components/UI/button/FlatButton';
 import PrimaryButton from '../../components/UI/button/PrimaryButton';
 import LoginForm from '../../components/UI/form/LoginForm';
-import { useKeyboard } from '../../hooks/useKeyboard';
+import { useKeyboard } from '../../hooks/use-keyboard';
 import { AuthContext } from '../../store/auth-context';
 import { login } from '../../utils/http/auth';
 

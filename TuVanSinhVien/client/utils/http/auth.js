@@ -1,4 +1,4 @@
-import instance from '../../config/axios';
+import instance from '../../configs/axios';
 
 export async function login(loginData) {
   try {
