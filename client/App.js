@@ -2,22 +2,43 @@ import 'react-native-get-random-values';
 import Realm from 'realm';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './src/page/common/login';
+import Register from './src/page/common/register';
+import useMyFonts from './src/hooks/useMyFonts';
+import ForgotPassword from './src/page/common/forgot-password';
+import AppHome from './src/page/common/app-home';
 
 export default function App() {
-  console.log(new Realm.BSON.ObjectId());
+
+  console.log('App is running');
+  const Stack = createNativeStackNavigator();
+
+  const { onLayoutRootView } = useMyFonts()
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style='auto' />
-    </View>
+    <NavigationContainer>
+      <View
+        style={style.root}
+        onLayoutRootView={onLayoutRootView}>
+        <Stack.Navigator
+          initialRouteName="AppHome"
+          screenOptions={{
+            headerShown: false
+          }}>
+          <Stack.Screen name='Login' component={Login} />
+          <Stack.Screen name='Register' component={Register} />
+          <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
+          <Stack.Screen name='AppHome' component={AppHome} />
+        </Stack.Navigator>
+      </View>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const style = StyleSheet.create({
+  root: {
+    flex: 1
+  }
+})
