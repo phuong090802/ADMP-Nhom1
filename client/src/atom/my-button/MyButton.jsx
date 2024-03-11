@@ -10,10 +10,11 @@ const MyButton = ({ title, onPress, color }) => {
             justifyContent: 'center',
             alignItems: 'center',
             height: 44,
-            borderRadius: 16
+            borderRadius: 16,
+            paddingHorizontal: 8
         },
         title: {
-            fontFamily: fonts.BahnschriftRegular,
+            fontFamily: fonts.BahnschriftBold,
             fontSize: 20,
             color: '#fff',
         }

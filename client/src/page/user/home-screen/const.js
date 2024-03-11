@@ -10,16 +10,15 @@ const style = StyleSheet.create({
   },
 });
 
-const questionBoxStyle = StyleSheet.create({
+const dropdownItemStyle = StyleSheet.create({
   container: {
     display: "flex",
     backgroundColor: "#fff",
     flexDirection: "column",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingVertical: 16,
     borderWidth: 0.5,
     borderColor: colors.black10,
-    marginBottom: 16,
+    marginBottom: 8,
     borderRadius: 16,
   },
   header: {
@@ -27,6 +26,7 @@ const questionBoxStyle = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingHorizontal: 16,
     width: "100%",
   },
   questionInfor: {
@@ -39,8 +39,8 @@ const questionBoxStyle = StyleSheet.create({
   },
   inforContainer: {
     display: "flex",
-    flexDirection:'row',
-    alignItems:"center",
+    flexDirection: "row",
+    alignItems: "center",
     gap: 4,
   },
   authorImage: {
@@ -55,6 +55,45 @@ const questionBoxStyle = StyleSheet.create({
     fontFamily: fonts.BahnschriftRegular,
   },
   icon: {},
+  dropDownContainer: {
+    paddingTop: 8,
+    overflow: 'hidden'
+  },
+  open: { height: "auto" },
+  close: { height: 0 },
 });
 
-export { style, questionBoxStyle };
+const dropdownContentStyle = StyleSheet.create({
+  container: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderTopWidth: 2,
+    borderTopColor: colors.black10,
+    display: "flex",
+    flexDirection: "row",
+    gap: 8,
+  },
+  title: { fontSize: 16, fontFamily: fonts.BahnschriftBold },
+  content: {
+    fontSize: 16,
+    fontFamily: fonts.BahnschriftRegular,
+    width: "95%",
+    textAlign: "justify",
+    color: colors.black75,
+  },
+  authorImage: {
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: colors.primary,
+  },
+  authorContainer: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 1,
+    alignItems: "center",
+  },
+});
+
+export { style, dropdownContentStyle, dropdownItemStyle };

@@ -1,13 +1,26 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { colors } from "../../../constant";
 import Octicon from "../octicon/Octicon";
 
-const IconButton = ({ iconName, iconColor, iconSize, buttonColor }) => {
+const IconButton = ({
+  iconName,
+  iconColor,
+  iconSize,
+  buttonColor,
+  onClick,
+}) => {
   const buttonColorStyle = { backgroundColor: buttonColor || colors.primary };
+
+  const handleClick = () => {
+    if (onClick) onClick();
+  };
   return (
-    <View style={[style.button, buttonColorStyle]}>
+    <TouchableOpacity
+      style={[style.button, buttonColorStyle]}
+      onPress={handleClick}
+    >
       <Octicon name={iconName} size={iconSize} color={iconColor} />
-    </View>
+    </TouchableOpacity>
   );
 };
 

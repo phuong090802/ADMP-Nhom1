@@ -1,15 +1,15 @@
-import LoginForm from "./LoginForm"
-import useMyFonts from "../../../hooks/useMyFonts"
-import AuthLayout from "../../../template/auth-layout/AuthLayout"
-import { createContext } from "react"
+import LoginForm from "./LoginForm";
+import AuthLayout from "../../../template/auth-layout/AuthLayout";
 
 const Login = ({ navigation }) => {
-
-    return <AuthLayout
-        title={'Đăng nhập'}>
-        <LoginForm
-            navigation={navigation} />
+  return (
+    <AuthLayout
+      title={"Đăng nhập"}
+      onBack={() => navigation.navigate("AppHome")}
+    >
+      <LoginForm navigation={navigation} />
     </AuthLayout>
-}
+  );
+};
 
-export default Login
+export default Login;

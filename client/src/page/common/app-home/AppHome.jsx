@@ -5,6 +5,10 @@ import NavButton from '../../../molecule/nav-button';
 import { colors } from '../../../../constant';
 import CreateNavButton from '../../../molecule/create-nav-button';
 import Layout from '../../../template/layout';
+import FaqsScreen from '../../user/faqs-screen';
+import CreateQuestionScreen from '../../user/create-question-screen';
+import CounsellorListScreen from '../../user/counsellor-list-screen';
+import NewsScreen from '../../user/news-screen';
 
 const AppHome = () => {
     const Tab = createBottomTabNavigator();
@@ -28,7 +32,7 @@ const AppHome = () => {
             />
             <Tab.Screen
                 name='FaqsScreen'
-                component={homeScreen}
+                component={FaqsScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <NavButton icon={'question'} color={color} size={size} />
@@ -38,7 +42,7 @@ const AppHome = () => {
             />
             <Tab.Screen
                 name='CreateQuestionScreen'
-                component={homeScreen}
+                component={CreateQuestionScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <CreateNavButton icon={'question'} color={color} size={size} />
@@ -48,7 +52,7 @@ const AppHome = () => {
             />
             <Tab.Screen
                 name='CounsellorListScreen'
-                component={homeScreen}
+                component={CounsellorListScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <NavButton icon={'people'} color={color} size={size} />
@@ -58,7 +62,7 @@ const AppHome = () => {
             />
             <Tab.Screen
                 name='NewsScreen'
-                component={homeScreen}
+                component={NewsScreen}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <NavButton icon={'note'} color={color} size={size} />
