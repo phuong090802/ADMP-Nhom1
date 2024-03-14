@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native"
 import { formStyle } from "./const"
-import IconInput from "../../../atom/icon-input"
+import IconInput from "../../../molecule/icon-input"
 import MyButton from "../../../atom/my-button"
 import { useState } from "react"
 

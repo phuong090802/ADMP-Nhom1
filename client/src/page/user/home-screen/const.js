@@ -4,9 +4,9 @@ import { colors, fonts } from "../../../../constant";
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start",
+    justifyContent: "flex-start", 
     paddingHorizontal: 16,
-    marginTop: 16,
+    marginTop: -40,
   },
 });
 
@@ -38,6 +38,7 @@ const dropdownItemStyle = StyleSheet.create({
     color: colors.black75,
   },
   inforContainer: {
+    marginTop: 4,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -57,7 +58,7 @@ const dropdownItemStyle = StyleSheet.create({
   icon: {},
   dropDownContainer: {
     paddingTop: 8,
-    overflow: 'hidden'
+    overflow: "hidden",
   },
   open: { height: "auto" },
   close: { height: 0 },
@@ -96,4 +97,15 @@ const dropdownContentStyle = StyleSheet.create({
   },
 });
 
-export { style, dropdownContentStyle, dropdownItemStyle };
+const initParams = {
+  search: ["title", "content"],
+  keyword: "",
+  page: 1,
+  size: 10,
+  filter: {},
+  sort: {
+    views: 1,
+    createdAt: 1,
+  },
+};
+export { style, dropdownContentStyle, dropdownItemStyle, initParams };

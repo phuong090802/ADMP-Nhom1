@@ -3,8 +3,8 @@ import axios from "axios";
 import { refreshTokenSv } from "./guest/author.sv";
 
 const API = axios.create({
-  //   baseURL: process.env.EXPO_PUBLIC_LOCAL_API_URL,
-  baseURL: process.env.EXPO_PUBLIC_HOST_API_URL,
+  baseURL: process.env.EXPO_PUBLIC_LOCAL_API_URL,
+  // baseURL: process.env.EXPO_PUBLIC_HOST_API_URL,
 });
 
 API.interceptors.response.use(
@@ -13,9 +13,10 @@ API.interceptors.response.use(
   },
   async (error) => {
     const originalRequest = error.config;
+
     if (
-      error?.response?.status === 401 &&
-      error?.response?.data?.code !== 4008 &&
+      error.response.status === 401 &&
+      error.response.data.code === 4015 &&
       !originalRequest._retry
     ) {
       console.log("get new Token");
@@ -33,6 +34,7 @@ API.interceptors.response.use(
         return Promise.reject(refreshError.response.data);
       }
     }
+    // console.log(error.response.data);
     return Promise.reject(error.response.data);
   }
 );

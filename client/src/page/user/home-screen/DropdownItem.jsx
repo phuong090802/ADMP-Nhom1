@@ -6,48 +6,59 @@ import Octicon from "../../../atom/octicon";
 import QuestionBox from "./QuestionBox";
 import AnswerBox from "./AnswerBox";
 import { useCallback } from "react";
+import { dateTimeToDate } from "../../../util/convert.util";
 
-const DropdownItem = ({ id, isOpen, onSelect }) => {
-
-  const handleSelect = useCallback(()=>{
-    if(onSelect) onSelect()
-  },[onSelect])
+const DropdownItem = ({ data, isOpen, onSelect }) => {
+  const handleSelect = useCallback(() => {
+    if (onSelect) onSelect();
+  }, [onSelect]);
 
   return (
-    <View style={dropdownItemStyle.container}>
-      <View style={dropdownItemStyle.header}>
-        <View style={dropdownItemStyle.questionInfor}>
-          <Text style={dropdownItemStyle.title}>
-            Thắc mắc về nộp chứng chỉ Toeic để quy đổi điểm
-          </Text>
-          <View style={dropdownItemStyle.inforContainer}>
-            <Image source={user_avatar} style={dropdownItemStyle.authorImage} />
-            <Text style={dropdownItemStyle.inforText}>Trần Thanh Phương</Text>
-            <Octicon name={"clock"} size={16} />
-            <Text style={dropdownItemStyle.inforText}>11/03/2024</Text>
-            <Octicon name={"eye"} size={16} />
-            <Text style={dropdownItemStyle.inforText}>120</Text>
+    data && (
+      <>
+        <View style={dropdownItemStyle.container}>
+          <View style={dropdownItemStyle.header}>
+            <View style={dropdownItemStyle.questionInfor}>
+              <Text style={dropdownItemStyle.title}>{data.title}</Text>
+              <View style={dropdownItemStyle.inforContainer}>
+                <Image
+                  source={
+                    data.user.avatar ? { uri: data.user.avatar } : user_avatar
+                  }
+                  style={dropdownItemStyle.authorImage}
+                />
+                <Text style={dropdownItemStyle.inforText}>
+                  {data.user.fullName}
+                </Text>
+                <Octicon name={"clock"} size={16} />
+                <Text style={dropdownItemStyle.inforText}>
+                  {dateTimeToDate(data.createdAt)}
+                </Text>
+                <Octicon name={"eye"} size={16} />
+                <Text style={dropdownItemStyle.inforText}>{data.views}</Text>
+              </View>
+            </View>
+            <View style={dropdownItemStyle.icon}>
+              <IconButton
+                iconName={"triangle-down"}
+                iconColor={"#fff"}
+                iconSize={20}
+                onClick={handleSelect}
+              />
+            </View>
+          </View>
+          <View
+            style={[
+              dropdownItemStyle.dropDownContainer,
+              isOpen ? dropdownItemStyle.open : dropdownItemStyle.close,
+            ]}
+          >
+            <QuestionBox content={data.content} />
+            <AnswerBox data={data.answer} />
           </View>
         </View>
-        <View style={dropdownItemStyle.icon}>
-          <IconButton
-            iconName={"triangle-down"}
-            iconColor={"#fff"}
-            iconSize={20}
-            onClick={handleSelect}
-          />
-        </View>
-      </View>
-      <View
-        style={[
-          dropdownItemStyle.dropDownContainer,
-          isOpen ? dropdownItemStyle.open : dropdownItemStyle.close,
-        ]}
-      >
-        <QuestionBox />
-        <AnswerBox />
-      </View>
-    </View>
+      </>
+    )
   );
 };
 

@@ -10,6 +10,7 @@ import useMyFonts from "./src/hooks/useMyFonts";
 import ForgotPassword from "./src/page/common/forgot-password";
 import AppHome from "./src/page/common/app-home";
 import Store from "./src/store/Store";
+import temp from "./src/page/temp";
 
 export default function App() {
   console.log("App is running");
@@ -23,6 +24,7 @@ export default function App() {
         <View style={style.root} onLayoutRootView={onLayoutRootView}>
           <Stack.Navigator
             initialRouteName="AppHome"
+            // initialRouteName="Temp"
             screenOptions={{
               headerShown: false,
             }}
@@ -31,6 +33,7 @@ export default function App() {
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
             <Stack.Screen name="AppHome" component={AppHome} />
+            <Stack.Screen name="Temp" component={temp} />
           </Stack.Navigator>
         </View>
       </NavigationContainer>

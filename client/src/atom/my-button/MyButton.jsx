@@ -6,7 +6,6 @@ const MyButton = ({ title, onPress, color }) => {
     const style = StyleSheet.create({
         container: {
             backgroundColor: color || colors.primary,
-            display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             height: 44,

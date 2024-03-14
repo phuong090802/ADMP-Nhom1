@@ -2,30 +2,54 @@ import { useCallback } from "react";
 import { StyleSheet, View } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import { colors, fonts } from "../../../constant";
-import MaterialIcon from "../material-icon";
+import MyIcon from "../../atom/my-icon";
 
-const MySelect = ({ name, data, onChange, defaultOption }) => {
+const MySelect = ({
+  name,
+  data,
+  onChange,
+  defaultOption,
+  iconName,
+  iconSize,
+  iconColor,
+  iconPackage,
+  placeholder,
+  width,
+}) => {
   const handleSelect = useCallback(
     (value) => {
-      if (!onChange || !name) return;
-      onChange(name, value);
+      if (!onChange) return;
+      if (!name) {
+        onChange(value);
+      } else {
+        onChange(name, value);
+      }
     },
     [onChange]
   );
 
   return (
-    <View>
+    <View style={[style.container, width && { width: width }]}>
       <SelectList
         setSelected={(value) => handleSelect(value)}
         data={data}
-        save="value"
-        boxStyles={style.boxStyles}
+        save="key"
+        boxStyles={[style.boxStyles]}
         inputStyles={style.inputStyles}
         dropdownStyles={style.dropdownStyles}
         defaultOption={defaultOption || {}}
+        placeholder={placeholder || "Select options"}
+        search={false}
       />
       <View style={style.icon}>
-        <MaterialIcon name={"work-outline"} />
+        {iconName && iconPackage && (
+          <MyIcon
+            name={iconName}
+            iconPackage={iconPackage}
+            size={iconSize || 24}
+            color={iconColor || "#000"}
+          />
+        )}
       </View>
     </View>
   );
@@ -34,7 +58,6 @@ const MySelect = ({ name, data, onChange, defaultOption }) => {
 const style = StyleSheet.create({
   container: {
     display: "flex",
-    flexDirection: "row",
     alignItems: "center",
     position: "relative",
   },
@@ -54,6 +77,7 @@ const style = StyleSheet.create({
     borderRadius: 16,
     marginTop: 0,
     paddingLeft: 40,
+    width: "100%",
   },
   inputStyles: {
     fontFamily: fonts.BahnschriftRegular,

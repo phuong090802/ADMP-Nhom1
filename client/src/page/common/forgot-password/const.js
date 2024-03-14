@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const formStyle = StyleSheet.create({
     container: {
         marginTop: 24,
-        gap: 24,
+        gap: 28,
         fontFamily: 'BahnschriftRegular'
     },
     footer: {

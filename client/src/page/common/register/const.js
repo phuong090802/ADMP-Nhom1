@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const formStyle = StyleSheet.create({
   container: {
     marginTop: 24,
-    gap: 24,
+    gap: 28,
     fontFamily: "BahnschriftRegular",
   },
   footer: {
@@ -22,7 +22,7 @@ const formStyle = StyleSheet.create({
 
 const selectData = [
   { key: "Sinh viên", value: "Sinh viên" },
-  { key: "Cựu sinh viên", value: "Cựu sinh viên" },
+  { key: "Cựu sinh viên", value: "Cựu sinh viên"  },
   { key: "Học sinh", value: "Học sinh" },
   { key: "Phụ huynh", value: "Phụ huynh" },
 ];

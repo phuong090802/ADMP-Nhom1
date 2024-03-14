@@ -5,8 +5,7 @@ const style = StyleSheet.create({
     container: {
         backgroundColor: colors.ghostWhite,
         flex: 1,
-        paddingTop: 40,
-
+        paddingTop: 32,
     }
 })
 
@@ -21,7 +20,7 @@ const headerStyle = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginHorizontal: 16
+        marginHorizontal: 16,
     },
     userInforContainer: {
         display: 'flex',

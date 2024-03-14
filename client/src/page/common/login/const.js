@@ -39,10 +39,8 @@ const style = StyleSheet.create({
 const formStyle = StyleSheet.create({
   container: {
     marginTop: 24,
-    gap: 24,
-    fontFamily: Platform.select({
-      android: "BahnschriftRegular",
-    }),
+    gap: 28,
+    fontFamily: fonts.BahnschriftRegular
   },
   footer: {
     display: "flex",

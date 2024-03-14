@@ -27,7 +27,7 @@ const style = StyleSheet.create({
         fontSize: 32,
         color: '#fff',
         fontFamily: fonts.Bungee,
-        marginVertical: -16
+        marginVertical: -24
     }
 })
 

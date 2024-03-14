@@ -1,5 +1,5 @@
 import { Alert, Text, TouchableOpacity, View } from "react-native";
-import IconInput from "../../../atom/icon-input";
+import IconInput from "../../../molecule/icon-input";
 import { formStyle, initLoginData } from "./const";
 import MyButton from "../../../atom/my-button";
 import { useContext, useState } from "react";
@@ -11,12 +11,14 @@ const LoginForm = ({ navigation }) => {
   const { setUser } = useContext(DataContext);
   const [loginData, setLoginData] = useState(initLoginData);
 
+
   const handleInputChange = (name, value) => {
     setLoginData((prev) => ({ ...prev, [name]: value }));
   };
 
   const login = async () => {
     try {
+      console.log(loginData);
       const response = await loginSv(loginData);
       await AsyncStorage.setItem("accessToken", response.token);
       setUser({ ...response.user, isLoggedIn: true });
@@ -29,6 +31,7 @@ const LoginForm = ({ navigation }) => {
   return (
     <View style={formStyle.container}>
       <IconInput
+        iconPackage={"Feather"}
         icon={"phone"}
         placeholder={"Số điện thoại"}
         name={"username"}
@@ -36,7 +39,8 @@ const LoginForm = ({ navigation }) => {
         value={loginData.username}
       />
       <IconInput
-        icon={"lock-outline"}
+        iconPackage={"Feather"}
+        icon={"lock"}
         placeholder={"Mật khẩu"}
         name={"password"}
         onChange={handleInputChange}
