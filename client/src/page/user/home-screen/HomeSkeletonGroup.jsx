@@ -3,16 +3,17 @@ import HomeSkeleton from "./HomeSkeleton";
 
 const HomeSkeletonGroup = () => {
   return (
-    <View style={{ rowGap: 8, width: "100%", marginTop: 8 }}>
+    <ScrollView
+      style={{ rowGap: 8, width: "100%", flex: 1}}
+      showsVerticalScrollIndicator={false}
+    >
       <HomeSkeleton />
       <HomeSkeleton />
       <HomeSkeleton />
       <HomeSkeleton />
       <HomeSkeleton />
       <HomeSkeleton />
-      <HomeSkeleton />
-      <HomeSkeleton />
-    </View>
+    </ScrollView>
   );
 };
 

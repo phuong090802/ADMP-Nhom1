@@ -1,19 +1,13 @@
 import { useContext, useState } from "react";
-import ModalLayout from "../../../template/modal-layout/ModalLayout";
-import { HomeContext } from "./HomeScreen";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import MySelect from "../../../molecule/my-select";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors, fonts } from "../../../../constant";
-import MyIcon from "../../../atom/my-icon";
 import MyButton from "../../../atom/my-button";
+import MyIcon from "../../../atom/my-icon";
+import ModalLayout from "../../../template/modal-layout/ModalLayout";
+import { HomeContext } from "./HomeStore";
 
 const SortModal = () => {
-  const { sortVisible, setSortVisible, params, setParams } =
+  const { sortVisible, setSortVisible, params, setParams, setQuestions } =
     useContext(HomeContext);
   const [tempSort, setTempSort] = useState({ ...params.sort });
 
@@ -26,8 +20,9 @@ const SortModal = () => {
   };
 
   const submit = () => {
-    setParams((prev) => ({ ...prev, sort: tempSort }));
-    setSortVisible(false)
+    setQuestions([]);
+    setParams((prev) => ({ ...prev, sort: tempSort, page: 1 }));
+    setSortVisible(false);
   };
 
   return (

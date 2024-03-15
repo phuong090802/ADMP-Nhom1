@@ -4,7 +4,7 @@ import { colors, fonts } from "../../../../constant";
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start", 
+    // justifyContent: "flex-start", 
     paddingHorizontal: 16,
     marginTop: -40,
   },
@@ -101,7 +101,7 @@ const initParams = {
   search: ["title", "content"],
   keyword: "",
   page: 1,
-  size: 10,
+  size: 8,
   filter: {},
   sort: {
     views: 1,

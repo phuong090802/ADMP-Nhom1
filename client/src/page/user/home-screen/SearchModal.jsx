@@ -5,7 +5,7 @@ import MyButton from "../../../atom/my-button";
 import IconInput from "../../../molecule/icon-input";
 import MySelect from "../../../molecule/my-select";
 import ModalLayout from "../../../template/modal-layout/ModalLayout";
-import { HomeContext } from "./HomeScreen";
+import { HomeContext } from "./HomeStore";
 
 const SearchModal = () => {
   const {
@@ -17,9 +17,9 @@ const SearchModal = () => {
     params,
     chosenDep,
     setChosenDep,
-    searchHandle,
     chosenField,
     setChosenField,
+    setQuestions,
   } = useContext(HomeContext);
 
   const onClose = useCallback(() => {
@@ -45,7 +45,20 @@ const SearchModal = () => {
     setParams((prev) => ({ ...prev, keyword: value }));
   }, []);
 
+  const searchHandle = () => {
+    let tempFilter = { ...params.filter };
+    console.log(tempFilter);
+    if (!chosenDep) tempFilter = {};
+    else {
+      tempFilter.department = chosenDep;
+      if (!chosenField) delete tempFilter.fieldId;
+      else tempFilter.field = chosenField;
+    }
+    setParams((prev) => ({ ...prev, filter: tempFilter, page: 1 }));
+  };
+
   const submit = useCallback(() => {
+    setQuestions([]);
     searchHandle();
     setSearchVisible(false);
   }, [searchHandle]);

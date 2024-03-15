@@ -1,20 +1,21 @@
+import { useCallback, useContext } from "react";
 import { Image, Text, View } from "react-native";
-import { dropdownItemStyle } from "./const";
-import IconButton from "../../../atom/icon-button";
 import user_avatar from "../../../../assets/img/user_avatar.jpg";
+import IconButton from "../../../atom/icon-button";
 import Octicon from "../../../atom/octicon";
-import QuestionBox from "./QuestionBox";
-import AnswerBox from "./AnswerBox";
-import { useCallback } from "react";
 import { dateTimeToDate } from "../../../util/convert.util";
+import AnswerBox from "./AnswerBox";
+import QuestionBox from "./QuestionBox";
+import { dropdownItemStyle } from "./const";
 
 const DropdownItem = ({ data, isOpen, onSelect }) => {
+
   const handleSelect = useCallback(() => {
     if (onSelect) onSelect();
   }, [onSelect]);
 
   return (
-    data && (
+    data.user && (
       <>
         <View style={dropdownItemStyle.container}>
           <View style={dropdownItemStyle.header}>
@@ -23,7 +24,7 @@ const DropdownItem = ({ data, isOpen, onSelect }) => {
               <View style={dropdownItemStyle.inforContainer}>
                 <Image
                   source={
-                    data.user.avatar ? { uri: data.user.avatar } : user_avatar
+                    data?.user.avatar ? { uri: data.user.avatar } : user_avatar
                   }
                   style={dropdownItemStyle.authorImage}
                 />
