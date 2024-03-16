@@ -1,6 +1,6 @@
-import { LinearGradient } from "expo-linear-gradient";
-import { Animated, StyleSheet, View } from "react-native";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Animated, StyleSheet, View } from 'react-native';
 
 const Skeleton = ({ width, height, style }) => {
   const translateX = useRef(new Animated.Value(-width)).current;
@@ -14,33 +14,44 @@ const Skeleton = ({ width, height, style }) => {
       })
     ).start();
   }, [width]);
+
   return (
     <View
       style={StyleSheet.flatten([
-        {
-          width: width,
-          height: height,
-          backgroundColor: "rgba(0, 0, 0, 0.12)",
-          overflow: "hidden"
-        },
+        styles.rootContainer,
         style,
+        { width: width, height: height },
       ])}
     >
       <Animated.View
-        style={{
-          width: "100̀",
-          height: "100̀",
-          transform: [{ translateX: translateX }],
-        }}
+        style={[
+          styles.insideContainer,
+          { transform: [{ translateX: translateX }] },
+        ]}
       >
         <LinearGradient
-          style={{ width: "100%", height: "100%" }}
-          colors={["transparent", "rgba(0, 0, 0, 0.07)", "transparent"]}
+          style={styles.linearGradient}
+          colors={['transparent', 'rgba(0, 0, 0, 0.07)', 'transparent']}
           start={{ x: 1, y: 1 }}
         />
       </Animated.View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  rootContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.12)',
+    overflow: 'hidden',
+  },
+  insideContainer: {
+    width: '100̀',
+    height: '100̀',
+  },
+  linearGradient: {
+    width: '100%',
+    height: '100%',
+  },
+});
 
 export default Skeleton;

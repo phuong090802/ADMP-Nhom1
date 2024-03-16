@@ -1,43 +1,56 @@
-import "react-native-get-random-values";
-import Realm from "realm";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Login from "./src/page/common/login";
-import Register from "./src/page/common/register";
-import useMyFonts from "./src/hooks/useMyFonts";
-import ForgotPassword from "./src/page/common/forgot-password";
-import AppHome from "./src/page/common/app-home";
-import Store from "./src/store/Store";
-import temp from "./src/page/temp";
+import 'react-native-get-random-values';
+import { useCallback } from 'react';
+import { useFonts } from 'expo-font';
+import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import AppHome from './src/screens/common/app-home';
+import ForgotPassword from './src/screens/common/forgot-password';
+import Login from './src/screens/common/login';
+import Register from './src/screens/common/register';
+import temp from './src/screens/temp';
+import Store from './src/store/Store';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  console.log("App is running");
-  const Stack = createNativeStackNavigator();
+  console.log('App is running');
 
-  const { onLayoutRootView } = useMyFonts();
+  const [fontsLoaded, fontsError] = useFonts({
+    BahnschriftBold: require('./assets/fonts/BahnschriftBold.ttf'),
+    BahnschriftRegular: require('./assets/fonts/BahnschriftRegular.ttf'),
+    Bungee: require('./assets/fonts/Bungee.ttf'),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontsError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontsError]);
+
+  if (!fontsLoaded && !fontsError) {
+    return null;
+  }
 
   return (
-    <Store>
-      <NavigationContainer>
-        <View style={style.root} onLayoutRootView={onLayoutRootView}>
+    <View style={style.root} onLayoutRootView={onLayoutRootView}>
+      <Store>
+        <NavigationContainer>
           <Stack.Navigator
-            initialRouteName="AppHome"
+            initialRouteName='AppHome'
             // initialRouteName="Temp"
-            screenOptions={{
-              headerShown: false,
-            }}
+            screenOptions={{ headerShown: false }}
           >
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-            <Stack.Screen name="AppHome" component={AppHome} />
-            <Stack.Screen name="Temp" component={temp} />
+            <Stack.Screen name='Login' component={Login} />
+            <Stack.Screen name='Register' component={Register} />
+            <Stack.Screen name='ForgotPassword' component={ForgotPassword} />
+            <Stack.Screen name='AppHome' component={AppHome} />
+            <Stack.Screen name='Temp' component={temp} />
           </Stack.Navigator>
-        </View>
-      </NavigationContainer>
-    </Store>
+        </NavigationContainer>
+      </Store>
+    </View>
   );
 }
 

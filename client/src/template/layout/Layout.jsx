@@ -1,16 +1,16 @@
-import { StyleSheet, View } from "react-native";
-import { colors } from "../../../constant";
-import Header from "./Header";
-import { style } from "./const";
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import Header from './Header';
+import { styles as headerStyles } from './const';
 
 const Layout = ({ children }) => {
   return (
     <>
-      <StatusBar style="dark" />
-      <SafeAreaView style={{ flex: 1 }}>
-        <View style={style.container}>
+      <StatusBar style='dark' />
+      <SafeAreaView style={styles.rootContainer}>
+        <View style={headerStyles.container}>
           <Header />
           {children}
         </View>
@@ -18,5 +18,11 @@ const Layout = ({ children }) => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+  },
+});
 
 export default Layout;

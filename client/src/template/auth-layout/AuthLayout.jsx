@@ -1,18 +1,12 @@
-import { LinearGradient } from "expo-linear-gradient";
-import {
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text,
-} from "react-native";
-import { fonts } from "../../../constant";
-import MaterialIcon from "../../atom/material-icon";
-import TitleLogo from "../../atom/title-logo/TitleLogo";
-import { useCallback } from "react";
-import MyIcon from "../../atom/my-icon";
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from 'expo-status-bar';
+import { useCallback } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { fonts } from '../../../constant';
+import MaterialIcon from '../../atom/material-icon';
+import TitleLogo from '../../atom/title-logo/TitleLogo';
 
 const AuthLayout = ({ title, children, onBack }) => {
   const handleBack = useCallback(() => {
@@ -22,27 +16,27 @@ const AuthLayout = ({ title, children, onBack }) => {
 
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar style='dark' />
       <SafeAreaView style={{ flex: 1 }}>
         <LinearGradient
-          colors={["#2785DC", "#1DDBD2"]}
+          colors={['#2785DC', '#1DDBD2']}
           start={[0, 0]}
           end={[1, 0]}
-          style={style.container}
+          style={styles.container}
         >
           <View
-            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
           >
             <TitleLogo />
           </View>
-          <View style={style.formContainer}>
-            <TouchableOpacity style={style.formHeader} onPress={handleBack}>
+          <View style={styles.formContainer}>
+            <TouchableOpacity style={styles.formHeader} onPress={handleBack}>
               <MaterialIcon
-                name={"arrow-back-ios-new"}
+                name={'arrow-back-ios-new'}
                 size={24}
-                color={"#4E504E"}
+                color={'#4E504E'}
               />
-              <Text style={style.title}>{title}</Text>
+              <Text style={styles.title}>{title}</Text>
             </TouchableOpacity>
             {children}
           </View>
@@ -52,17 +46,17 @@ const AuthLayout = ({ title, children, onBack }) => {
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    backgroundColor: "#2785DC",
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: '#2785DC',
     fontFamily: fonts.BahnschriftRegular,
   },
   formContainer: {
-    backgroundColor: "#fff",
-    width: "100%",
+    backgroundColor: '#fff',
+    width: '100%',
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
     paddingTop: 40,
@@ -70,14 +64,14 @@ const style = StyleSheet.create({
     paddingBottom: 8,
   },
   formHeader: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   title: {
     fontSize: 25,
-    color: "#4E504E",
+    color: '#4E504E',
     marginLeft: 8,
     fontFamily: fonts.BahnschriftBold,
   },

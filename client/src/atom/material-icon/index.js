@@ -1,1 +1,1 @@
-export { default } from './MaterialIcon'
+export { default } from './MaterialIcon';

@@ -1,1 +1,1 @@
-export { default } from './Octicon'
+export { default } from './Octicon';

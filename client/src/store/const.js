@@ -7,7 +7,7 @@ const initUSer = {
   fullName: null,
   occupation: null,
   phoneNumber: null,
-  role: "GUEST",
+  role: 'GUEST',
 };
 
 export { initUSer };

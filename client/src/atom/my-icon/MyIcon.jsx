@@ -14,62 +14,39 @@ import {
   Octicons,
   SimpleLineIcons,
   Zocial,
-} from "@expo/vector-icons";
+} from '@expo/vector-icons';
 
 const MyIcon = ({ name, size, color, iconPackage }) => {
-  let icon;
-  switch (iconPackage) {
-    case "AntDesign":
-      icon = <AntDesign name={name} size={size} color={color} />;
-      break;
-    case "Entypo":
-      icon = <Entypo name={name} size={size} color={color} />;
-      break;
-    case "EvilIcons":
-      icon = <EvilIcons name={name} size={size} color={color} />;
-      break;
-    case "Feather":
-      icon = <Feather name={name} size={size} color={color} />;
-      break;
-    case "FontAwesome":
-      icon = <FontAwesome name={name} size={size} color={color} />;
-      break;
-    case "FontAwesome5":
-      icon = <FontAwesome5 name={name} size={size} color={color} />;
-      break;
-    case "FontAwesome6":
-      icon = <FontAwesome6 name={name} size={size} color={color} />;
-      break;
-    case "Fontisto":
-      icon = <Fontisto name={name} size={size} color={color} />;
-      break;
-    case "Foundation":
-      icon = <Foundation name={name} size={size} color={color} />;
-      break;
-    case "Ionicons":
-      icon = <Ionicons name={name} size={size} color={color} />;
-      break;
-    case "MaterialCommunityIcons":
-      icon = <MaterialCommunityIcons name={name} size={size} color={color} />;
-      break;
-    case "MaterialIcons":
-      icon = <MaterialIcons name={name} size={size} color={color} />;
-      break;
-    case "Octicons":
-      icon = <Octicons name={name} size={size} color={color} />;
-      break;
-    case "SimpleLineIcons":
-      icon = <SimpleLineIcons name={name} size={size} color={color} />;
-      break;
-    case "Zocial":
-      icon = <Zocial name={name} size={size} color={color} />;
-      break;
-
-    default:
-      break;
+  if (iconPackage === 'AntDesign') {
+    return <AntDesign name={name} size={size} color={color} />;
+  } else if (iconPackage === 'Entypo') {
+    return <Entypo name={name} size={size} color={color} />;
+  } else if (iconPackage === 'EvilIcons') {
+    return <EvilIcons name={name} size={size} color={color} />;
+  } else if (iconPackage === 'Feather') {
+    return <Feather name={name} size={size} color={color} />;
+  } else if (iconPackage === 'FontAwesome') {
+    return <FontAwesome name={name} size={size} color={color} />;
+  } else if (iconPackage === 'FontAwesome5') {
+    return <FontAwesome5 name={name} size={size} color={color} />;
+  } else if (iconPackage === 'FontAwesome6') {
+    return <FontAwesome6 name={name} size={size} color={color} />;
+  } else if (iconPackage === 'Fontisto') {
+    return <Fontisto name={name} size={size} color={color} />;
+  } else if (iconPackage === 'Foundation') {
+    return <Foundation name={name} size={size} color={color} />;
+  } else if (iconPackage === 'Ionicons') {
+    return <Ionicons name={name} size={size} color={color} />;
+  } else if (iconPackage === 'MaterialCommunityIcons') {
+    return <MaterialCommunityIcons name={name} size={size} color={color} />;
+  } else if (iconPackage === 'MaterialIcons') {
+    return <MaterialIcons name={name} size={size} color={color} />;
+  } else if (iconPackage === 'Octicons') {
+    return <Octicons name={name} size={size} color={color} />;
+  } else if (iconPackage === 'SimpleLineIcons') {
+    return <SimpleLineIcons name={name} size={size} color={color} />;
+  } else if (iconPackage === 'Zocial') {
+    return <Zocial name={name} size={size} color={color} />;
   }
-
-  return icon
 };
-
 export default MyIcon;
