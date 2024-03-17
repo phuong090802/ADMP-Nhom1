@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import { colors, fonts } from '../../../../constant';
-import MyButton from '../../../atom/my-button';
-import MyIcon from '../../../atom/my-icon';
-import ModalLayout from '../../../template/modal-layout/ModalLayout';
+import { colors, fonts } from '../../../../../constant';
+import MyButton from '../../../../atom/my-button';
+import MyIcon from '../../../../atom/my-icon';
+import ModalLayout from '../../../../template/modal-layout/ModalLayout';
 import { HomeContext } from './HomeStore';
 
 const SortModal = () => {

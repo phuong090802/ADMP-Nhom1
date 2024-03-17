@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 
-import { colors } from '../../../../constant';
-import Octicon from '../../../atom/octicon';
+import { colors } from '../../../../../constant';
+import Octicon from '../../../../atom/octicon';
 import { dropdownContentStyles } from './const';
 
 const QuestionBox = ({ content }) => {

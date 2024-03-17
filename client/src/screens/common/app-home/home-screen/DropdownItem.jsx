@@ -1,14 +1,14 @@
 import { useCallback } from 'react';
 import { Image, Text, View } from 'react-native';
 
-import user_avatar from '../../../../assets/images/user_avatar.jpg';
+import user_avatar from '../../../../../assets/images/user_avatar.jpg';
 
 import { dropdownItemStyles } from './const';
 
-import IconButton from '../../../atom/icon-button';
-import Octicon from '../../../atom/octicon';
+import IconButton from '../../../../atom/icon-button';
+import Octicon from '../../../../atom/octicon';
 
-import { dateTimeToDate } from '../../../util/convert.util';
+import { dateTimeToDate } from '../../../../util/convert.util';
 
 import AnswerBox from './AnswerBox';
 import QuestionBox from './QuestionBox';

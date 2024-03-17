@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const API = axios.create({
   baseURL: process.env.EXPO_PUBLIC_LOCAL_API_URL,
   // baseURL: process.env.EXPO_PUBLIC_HOST_API_URL,
+  timeout: 10000,
 });
 
 API.interceptors.response.use(
@@ -14,8 +15,8 @@ API.interceptors.response.use(
     const originalRequest = error.config;
 
     if (
-      error.response.status === 401 &&
-      error.response.data.code === 4015 &&
+      error.response?.status === 401 &&
+      error.response?.data.code === 4015 &&
       !originalRequest._retry
     ) {
       console.log('get new Token');
@@ -38,7 +39,7 @@ API.interceptors.response.use(
       }
     }
     // console.log(error.response.data);
-    return Promise.reject(error.response.data);
+    return Promise.reject(error.response?.data);
   }
 );
 

@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { fonts } from '../../../../constant';
-import TitleBar from '../../../molecule/title-bar';
+import { fonts } from '../../../../../constant';
+import TitleBar from '../../../../molecule/title-bar';
 import {
   getDepFieldsSv,
   getDepsSv,
-} from '../../../services/guest/department.sv';
-import { getQuestionsSv } from '../../../services/guest/question.sv';
+} from '../../../../services/guest/department.sv';
+import { getQuestionsSv } from '../../../../services/guest/question.sv';
 import DropdownItem from './DropdownItem';
 import HomeSkeletonGroup from './HomeSkeletonGroup';
 import { HomeContext } from './HomeStore';
@@ -15,78 +15,112 @@ import SearchModal from './SearchModal';
 import SortModal from './SortModal';
 import { styles as homeScreenStyles } from './const';
 
+import { useHomeRealm } from '../../../../realm/hooks/use-home-real';
+import {
+  transformDepartments,
+  transformsFields,
+} from '../../../../util/convert.util';
+
 const HomeContent = () => {
   const homeContext = useContext(HomeContext);
+
+  const {
+    saveAllDepartments,
+    saveAllFields,
+    saveAllQuestions,
+    deleteAllQuestions,
+    departments: storedDepartments,
+    fields: storedFields,
+    questions: storedQuestions,
+  } = useHomeRealm();
 
   const [loading, setLoading] = useState(false);
   const [endReached, setEndReached] = useState(false);
 
-  //get DepsList
-  const getDeps = async () => {
+  function setQuestions(questions) {
+    deleteAllQuestions();
+    homeContext.setQuestions((prev) => {
+      const mergeQuestions = [...prev, ...questions];
+      saveAllQuestions(mergeQuestions);
+      return mergeQuestions;
+    });
+  }
+
+  function setDepartments(departments) {
+    const retDepartments = transformDepartments(departments);
+    homeContext.setDepData(retDepartments);
+  }
+
+  function setFields(fields) {
+    const retFields = transformsFields(fields);
+    homeContext.setFieldData(retFields);
+  }
+
+  // get getAllDepartments
+  async function getAllDepartments() {
     try {
       const response = await getDepsSv();
-      const temp = response.departments.map((department) => ({
-        value: department.departmentName || 'unknow Dep',
-        key: department._id,
-      }));
+      const departments = response.departments;
 
-      homeContext.setDepData((prevDeps) => [
-        prevDeps,
-        { key: 'null', value: 'Tất cả' },
-        ...temp,
-      ]);
+      setDepartments(departments);
+      saveAllDepartments(departments);
     } catch (error) {
-      console.log('Lỗi khi lấy dữ liệu khoa!');
+      setDepartments(storedDepartments);
+      console.log('Lỗi khi lấy dữ liệu khoa!', error);
     }
-  };
+  }
 
-  //get FieldList
-  const getFields = async () => {
+  // get getAllFields
+  async function getAllFields() {
     if (!homeContext.chosenDep) return;
     try {
       homeContext.setFieldData(null);
       homeContext.setChosenField(null);
       const response = await getDepFieldsSv(homeContext.chosenDep);
-      const temp = response.fields.map((field) => ({
-        value: field.fieldName || 'unknow Field',
-        key: field._id,
-      }));
-      homeContext.setFieldData((prevFields) => [
-        ...prevFields,
-        [{ key: 'null', value: 'Tất cả' }, ...temp],
-      ]);
+      const fields = response.fields;
+
+      setFields(fields);
+      saveAllFields(fields);
     } catch (error) {
-      console.log(error);
+      setFields(storedFields);
+      console.log('Lỗi khi lấy dữ liệu lĩnh vực của khoa!', error);
     }
-  };
+  }
 
   // getHomeScreen data
-  const getQuestion = async () => {
+  const getQuestions = async () => {
     if (loading) return;
     setLoading(true);
     try {
       const response = await getQuestionsSv(homeContext.params);
-      homeContext.setQuestions((prev) => [...prev, ...response.questions]);
+      const questions = response.questions;
+
+      setQuestions(questions);
+
       homeContext.setPages(response.pages);
     } catch (error) {
-      console.log(error);
+      if (homeContext.questions.length === 0) {
+        homeContext.setQuestions(storedQuestions);
+      }
+      console.log('Lỗi khi lấy dữ liệu câu hỏi!', error);
     } finally {
       setEndReached(false);
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    getQuestion();
-  }, [homeContext.params]);
 
   useEffect(() => {
-    getDeps();
+    getAllDepartments();
   }, []);
 
   useEffect(() => {
-    getFields();
+    getAllFields();
   }, [homeContext.chosenDep]);
+
+  useEffect(() => {
+    getQuestions();
+  }, [homeContext.params]);
 
   const handleItemSelect = (id) => {
     if (id === homeContext.selected) {

@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 
-import Skeleton from '../../../atom/skeleton';
+import Skeleton from '../../../../atom/skeleton';
 
-import { colors } from '../../../../constant';
+import { colors } from '../../../../../constant';
 
 const HomeSkeleton = () => {
   return (

@@ -4,10 +4,10 @@ import { colors } from '../../../../constant';
 import CreateNavButton from '../../../molecule/create-nav-button';
 import NavButton from '../../../molecule/nav-button';
 import Layout from '../../../template/layout';
-import CounsellorListScreen from '../../user/counsellor-list-screen';
+import CounsellorListScreen from '../../user/counsellor-list-screen/CounsellorListScreen';
 import CreateQuestionScreen from '../../user/create-question-screen';
 import FaqsScreen from '../../user/faqs-screen';
-import HomeScreen from '../../user/home-screen';
+import HomeScreen from '../app-home/home-screen/HomeScreen';
 import NewsScreen from '../../user/news-screen';
 
 const Tab = createBottomTabNavigator();

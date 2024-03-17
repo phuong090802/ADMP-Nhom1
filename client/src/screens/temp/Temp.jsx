@@ -1,6 +1,6 @@
 import { Dimensions, View } from 'react-native';
 
-import HomeSkeletonGroup from '../user/home-screen/HomeSkeletonGroup';
+import HomeSkeletonGroup from '../common/app-home/home-screen/HomeSkeletonGroup';
 
 const Temp = () => {
   const cardWidth = Dimensions.get('window').width - 32;

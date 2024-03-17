@@ -1,11 +1,11 @@
 import { useCallback, useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { colors } from '../../../../constant';
-import MyButton from '../../../atom/my-button';
-import IconInput from '../../../molecule/icon-input';
-import MySelect from '../../../molecule/my-select';
-import ModalLayout from '../../../template/modal-layout/ModalLayout';
+import { colors } from '../../../../../constant';
+import MyButton from '../../../../atom/my-button';
+import IconInput from '../../../../molecule/icon-input';
+import MySelect from '../../../../molecule/my-select';
+import ModalLayout from '../../../../template/modal-layout/ModalLayout';
 import { HomeContext } from './HomeStore';
 
 const SearchModal = () => {
