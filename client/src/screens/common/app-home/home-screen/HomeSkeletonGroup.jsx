@@ -1,10 +1,10 @@
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View, Dimensions } from 'react-native';
 
 import HomeSkeleton from './HomeSkeleton';
 
 const HomeSkeletonGroup = () => {
   return (
-    <ScrollView
+    <View
       style={styles.rootContainer}
       showsVerticalScrollIndicator={false}
     >
@@ -14,7 +14,9 @@ const HomeSkeletonGroup = () => {
       <HomeSkeleton />
       <HomeSkeleton />
       <HomeSkeleton />
-    </ScrollView>
+      <HomeSkeleton />
+      <HomeSkeleton />
+    </View>
   );
 };
 

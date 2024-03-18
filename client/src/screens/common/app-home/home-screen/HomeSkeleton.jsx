@@ -1,8 +1,8 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from "react-native";
 
-import Skeleton from '../../../../atom/skeleton';
+import Skeleton from "../../../../atom/skeleton";
 
-import { colors } from '../../../../../constant';
+import { colors } from "../../../../../constant";
 
 const HomeSkeleton = () => {
   return (
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingVertical: 16,
     paddingHorizontal: 16,
-    width: '100%',
+    width: "100%",
     borderWidth: 0.5,
     borderColor: colors.black10,
   },
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   skeletonContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: 8,
     gap: 4,
   },

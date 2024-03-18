@@ -7,6 +7,7 @@ import { formStyle, initLoginData } from './const';
 import MyButton from '../../../atom/my-button';
 import { loginSv } from '../../../services/guest/author.sv';
 import { DataContext } from '../../../store/Store';
+import { colors } from '../../../../constant';
 
 const LoginForm = ({ navigation }) => {
   const { setUser } = useContext(DataContext);
@@ -47,7 +48,7 @@ const LoginForm = ({ navigation }) => {
         value={loginData.password}
         secureTextEntry={true}
       />
-      <MyButton title={'Đăng nhập'} onPress={login} />
+      <MyButton title={'Đăng nhập'} onPress={login} color={colors.primary} />
       <View style={formStyle.footer}>
         <TouchableOpacity onPress={() => navigation.navigate('Register')}>
           <Text style={formStyle.footerLink}>Đăng ký</Text>

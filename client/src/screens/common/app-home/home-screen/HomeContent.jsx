@@ -1,25 +1,25 @@
-import { useContext, useEffect, useLayoutEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useContext, useEffect, useLayoutEffect, useState } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
-import { fonts } from '../../../../../constant';
-import TitleBar from '../../../../molecule/title-bar';
+import { fonts } from "../../../../../constant";
+import TitleBar from "../../../../molecule/title-bar";
 import {
   getDepFieldsSv,
   getDepsSv,
-} from '../../../../services/guest/department.sv';
-import { getQuestionsSv } from '../../../../services/guest/question.sv';
-import DropdownItem from './DropdownItem';
-import HomeSkeletonGroup from './HomeSkeletonGroup';
-import { HomeContext } from './HomeStore';
-import SearchModal from './SearchModal';
-import SortModal from './SortModal';
-import { styles as homeScreenStyles } from './const';
+} from "../../../../services/guest/department.sv";
+import { getQuestionsSv } from "../../../../services/guest/question.sv";
+import DropdownItem from "./DropdownItem";
+import HomeSkeletonGroup from "./HomeSkeletonGroup";
+import { HomeContext } from "./HomeStore";
+import SearchModal from "./SearchModal";
+import SortModal from "./SortModal";
+import { styles as homeScreenStyles } from "./const";
 
-import { useHomeRealm } from '../../../../realm/hooks/use-home-real';
+import { useHomeRealm } from "../../../../realm/hooks/use-home-real";
 import {
   transformDepartments,
   transformsFields,
-} from '../../../../util/convert.util';
+} from "../../../../util/convert.util";
 
 const HomeContent = () => {
   const homeContext = useContext(HomeContext);
@@ -66,7 +66,7 @@ const HomeContent = () => {
       saveAllDepartments(departments);
     } catch (error) {
       setDepartments(storedDepartments);
-      console.log('Lỗi khi lấy dữ liệu khoa!', error);
+      console.log("Lỗi khi lấy dữ liệu khoa!", error);
     }
   }
 
@@ -83,7 +83,7 @@ const HomeContent = () => {
       saveAllFields(fields);
     } catch (error) {
       setFields(storedFields);
-      console.log('Lỗi khi lấy dữ liệu lĩnh vực của khoa!', error);
+      console.log("Lỗi khi lấy dữ liệu lĩnh vực của khoa!", error);
     }
   }
 
@@ -102,13 +102,12 @@ const HomeContent = () => {
       if (homeContext.questions.length === 0) {
         homeContext.setQuestions(storedQuestions);
       }
-      console.log('Lỗi khi lấy dữ liệu câu hỏi!', error);
+      console.log("Lỗi khi lấy dữ liệu câu hỏi!", error);
     } finally {
       setEndReached(false);
       setLoading(false);
     }
   };
-
 
   useEffect(() => {
     getAllDepartments();
@@ -158,6 +157,7 @@ const HomeContent = () => {
       <SortModal />
       <View style={homeScreenStyles.container}>
         <TitleBar
+          title={"Hỏi đáp"}
           onSearch={() => homeContext.setSearchVisible(true)}
           onSort={() => homeContext.setSortVisible(true)}
         />
@@ -193,9 +193,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   fallbackContainer: {
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
     paddingBottom: 8,
   },
   fallbackText: {
