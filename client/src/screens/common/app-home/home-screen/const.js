@@ -5,7 +5,6 @@ import { colors, fonts } from "../../../../../constant";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: "flex-start",
     backgroundColor: colors.ghostWhite,
     paddingHorizontal: 16,
     paddingTop: 8,

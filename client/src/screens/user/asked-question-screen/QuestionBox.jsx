@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import { colors, fonts } from "../../../../../constant";
-import Octicon from "../../../../atom/octicon";
+import { colors, fonts } from "../../../../constant";
+import Octicon from "../../../atom/octicon";
 
 const QuestionBox = ({ content }) => {
   return (

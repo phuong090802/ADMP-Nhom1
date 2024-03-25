@@ -1,7 +1,7 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const refreshTokenCode = [4015, 4018];
+const refreshTokenCode = [4015, 4018, 4017];
 
 const API = axios.create({
   // baseURL: process.env.EXPO_PUBLIC_LOCAL_API_URL,

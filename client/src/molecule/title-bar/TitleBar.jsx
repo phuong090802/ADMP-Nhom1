@@ -3,8 +3,9 @@ import { Octicons } from "@expo/vector-icons";
 import { Text, TouchableOpacity, View } from "react-native";
 
 import { style } from "./const";
+import MyIcon from "../../atom/my-icon/MyIcon";
 
-const TitleBar = ({ onSearch, onSort, title }) => {
+const TitleBar = ({ onSearch, onSort, title, onBack }) => {
   return (
     <LinearGradient
       colors={["#2785DC", "#1DDBD2"]}
@@ -12,7 +13,19 @@ const TitleBar = ({ onSearch, onSort, title }) => {
       end={[1, 0]}
       style={style.container}
     >
-      <Text style={style.title}>{title || "Chưa có tiêu đề"}</Text>
+      <View style={{ flexDirection: "row" }}>
+        {onBack && (
+          <TouchableOpacity onPress={onBack}>
+            <MyIcon
+              name={"chevron-back"}
+              iconPackage={"Ionicons"}
+              color={"#fff"}
+              size={24}
+            />
+          </TouchableOpacity>
+        )}
+        <Text style={style.title}>{title || "Chưa có tiêu đề"}</Text>
+      </View>
       <View style={{ flexDirection: "row", gap: 16 }}>
         {onSort && (
           <TouchableOpacity onPress={onSort}>

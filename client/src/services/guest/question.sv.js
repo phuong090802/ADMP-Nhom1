@@ -14,4 +14,11 @@ const createQuestionSv = (data) => {
   });
 };
 
-export { getQuestionsSv, createQuestionSv };
+const getMyQuestionsSv = (params) => {
+  return API.get("user/questions", {
+    params: params,
+    headers: authHeader(),
+  });
+};
+
+export { getQuestionsSv, createQuestionSv, getMyQuestionsSv };
