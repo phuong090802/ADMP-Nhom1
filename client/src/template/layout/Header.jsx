@@ -54,9 +54,9 @@ const Header = () => {
         {user.isLoggedIn ? (
           <>
             <TouchableOpacity>
-              <Octicon name={"comment-discussion"} />
+              <Octicon name={"comment-discussion"}/>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity  onPress={()=>navigation.navigate("Noti")}>
               <Octicon name={"bell"} />
             </TouchableOpacity>
             <TouchableOpacity onPress={logOut}>

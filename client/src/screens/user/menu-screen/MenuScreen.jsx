@@ -3,13 +3,18 @@ import { colors, fonts } from "../../../../constant";
 import MyIcon from "../../../atom/my-icon";
 import Layout from "../../../template/layout";
 import { useNavigation } from "@react-navigation/native";
+import TitleBar from "../../../molecule/title-bar";
 
 const MenuScreen = () => {
   const navigation = useNavigation();
   return (
     <Layout>
       <View style={styles.rootContainer}>
-        <View>
+        <TitleBar
+          title={"Menu người dùng"}
+          onBack={() => navigation.navigate("AppHome")}
+        />
+        <View style={{ marginTop: 8 }}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
@@ -26,7 +31,7 @@ const MenuScreen = () => {
             />
           </View>
         </View>
-        <View style={{ marginTop: 8 }}>
+        {/* <View style={{ marginTop: 8 }}>
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
@@ -42,7 +47,7 @@ const MenuScreen = () => {
               size={24}
             />
           </View>
-        </View>
+        </View> */}
       </View>
     </Layout>
   );

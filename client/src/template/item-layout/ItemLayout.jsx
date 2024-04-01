@@ -23,9 +23,11 @@ export const ItemLayout = ({
           <View style={styles.headerInfor}>
             <Text style={styles.title}>{text || "Không có tiêu đề"}</Text>
             {/* {!!infor && <Text style={styles.inforBox}>{infor}</Text>} */}
-            <View style={styles.inforContainer}>
-              <Text style={styles.inforBox}>Khoa công nghệ thông tin</Text>
-            </View>
+            {infor && (
+              <View style={styles.inforContainer}>
+                <Text style={styles.inforBox}>{infor}</Text>
+              </View>
+            )}
           </View>
         </View>
         {onExpand && (
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.black10,
     fontFamily: fonts.BahnschriftRegular,
-    paddingHorizontal: 8
+    paddingHorizontal: 8,
   },
   image: {
     width: 48,

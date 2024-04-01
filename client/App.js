@@ -13,6 +13,7 @@ import temp from "./src/screens/temp";
 import askedQuestionScreen from "./src/screens/user/asked-question-screen";
 import MenuScreen from "./src/screens/user/menu-screen/MenuScreen";
 import Store from "./src/store/Store";
+import NotiScreen from "./src/screens/user/noti-screen";
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +54,7 @@ export default function App() {
               name="AskedQuestion"
               component={askedQuestionScreen}
             />
+            <Stack.Screen name="Noti" component={NotiScreen} />
             <Stack.Screen name="Temp" component={temp} />
           </Stack.Navigator>
         </NavigationContainer>

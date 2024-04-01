@@ -17,23 +17,25 @@ export const DropdownItem = ({ data, isOpen, onSelect }) => {
     if (onSelect) onSelect();
   }, [onSelect]);
 
+  console.log("myquestionData", data);
+
   return (
-    data.user && (
+    data && (
       <>
         <View style={dropdownItemStyles.container}>
           <View style={dropdownItemStyles.header}>
             <View style={dropdownItemStyles.questionInfor}>
               <Text style={dropdownItemStyles.title}>{data.title}</Text>
               <View style={dropdownItemStyles.inforContainer}>
-                <Image
+                {/* <Image
                   source={
                     data?.user.avatar ? { uri: data.user.avatar } : user_avatar
                   }
                   style={dropdownItemStyles.authorImage}
-                />
-                <Text style={dropdownItemStyles.inforText}>
+                /> */}
+                {/* <Text style={dropdownItemStyles.inforText}>
                   {data.user.fullName}
-                </Text>
+                </Text> */}
                 <Octicon name={"clock"} size={16} />
                 <Text style={dropdownItemStyles.inforText}>
                   {dateTimeToDate(data.createdAt)}
@@ -76,7 +78,7 @@ const dropdownItemStyles = StyleSheet.create({
     borderColor: colors.black10,
     marginBottom: 8,
     borderRadius: 16,
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
   },
   header: {
     display: "flex",

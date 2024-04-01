@@ -1,5 +1,12 @@
+import { NewsScreenContent } from "./NewsScreenContent";
+import { NewScreenStore } from "./NewsScreenStore";
+
 const NewsScreen = () => {
-  return <></>;
+  return (
+    <NewScreenStore>
+      <NewsScreenContent />
+    </NewScreenStore>
+  );
 };
 
 export default NewsScreen;
