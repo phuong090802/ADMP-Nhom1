@@ -1,16 +1,25 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { colors } from "../../../../constant";
+import Skeleton from "../../../atom/skeleton";
 
-import Skeleton from "../../../../atom/skeleton";
+export const FaqsSkeletons = () => {
+  return (
+    <View style={styles.group}>
+      <Ske />
+      <Ske />
+      <Ske />
+      <Ske />
+      <Ske />
+      <Ske />
+    </View>
+  );
+};
 
-import { colors } from "../../../../../constant";
-
-const HomeSkeleton = () => {
+const Ske = () => {
   return (
     <View style={styles.rootContainer}>
       <Skeleton width={250} height={25} style={styles.skeleton} />
       <View style={styles.skeletonContainer}>
-        <Skeleton width={70} height={15} style={styles.skeleton} />
-        <Skeleton width={70} height={15} style={styles.skeleton} />
         <Skeleton width={70} height={15} style={styles.skeleton} />
       </View>
     </View>
@@ -18,7 +27,10 @@ const HomeSkeleton = () => {
 };
 
 const styles = StyleSheet.create({
-  
+  group: {
+    rowGap: 8,
+    width: "100%",
+  },
   rootContainer: {
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.24,
@@ -41,5 +53,3 @@ const styles = StyleSheet.create({
     gap: 4,
   },
 });
-
-export default HomeSkeleton;

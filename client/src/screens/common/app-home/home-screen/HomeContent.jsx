@@ -61,7 +61,6 @@ const HomeContent = () => {
     try {
       const response = await getDepsSv();
       const departments = response.departments;
-
       setDepartments(departments);
       saveAllDepartments(departments);
     } catch (error) {
@@ -94,9 +93,7 @@ const HomeContent = () => {
     try {
       const response = await getQuestionsSv(homeContext.params);
       const questions = response.questions;
-
       setQuestions(questions);
-
       homeContext.setPages(response.pages);
     } catch (error) {
       if (homeContext.questions.length === 0) {
@@ -150,6 +147,7 @@ const HomeContent = () => {
       contentSize.height - paddingToBottom
     );
   };
+
 
   return (
     <>

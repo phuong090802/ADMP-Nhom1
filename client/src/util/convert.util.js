@@ -8,7 +8,7 @@ function dateTimeToDate(dateTime) {
 
 export function transformDepartments(departments) {
   const retDepartments = departments.map((department) => ({
-    value: department.departmentName,
+    value: department.departmentName || "unknow Department",
     key: department._id,
   }));
   retDepartments.unshift({ key: 'null', value: 'Tất cả' });
