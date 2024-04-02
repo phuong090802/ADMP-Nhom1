@@ -1,9 +1,9 @@
-import Realm from 'realm';
+import Realm from "realm";
 
-import HomeRealmContext from '../context/home-realm-context';
-import Department from '../models/department';
-import Field from '../models/field';
-import Question from '../models/question';
+import HomeRealmContext from "../context/home-realm-context";
+import Department from "../models/department";
+import Field from "../models/field";
+import Question from "../models/question";
 
 export function useHomeRealm() {
   const { useRealm, useQuery } = HomeRealmContext;
@@ -12,7 +12,7 @@ export function useHomeRealm() {
 
   function deleteAllQuestions() {
     realm.write(() => {
-      const allQuestions = realm.objects('Question');
+      const allQuestions = realm.objects("Question");
       realm.delete(allQuestions);
     });
   }
@@ -20,7 +20,7 @@ export function useHomeRealm() {
   function saveAllQuestions(questions) {
     realm.write(() => {
       questions.forEach((question) => {
-        realm.create('Question', {
+        realm.create("Question", {
           _id: Realm.BSON.ObjectId(question._id),
           title: question.title,
           content: question.content,
@@ -49,7 +49,7 @@ export function useHomeRealm() {
 
   function deleteAllDepartments() {
     realm.write(() => {
-      const allDepartments = realm.objects('Department');
+      const allDepartments = realm.objects("Department");
       realm.delete(allDepartments);
     });
   }
@@ -58,9 +58,9 @@ export function useHomeRealm() {
     deleteAllDepartments();
     realm.write(() => {
       departments.forEach((department) => {
-        realm.create('Department', {
+        realm.create("Department", {
           _id: Realm.BSON.ObjectId(department._id),
-          departmentName: department.departmentName,
+          departmentName: department.departmentName || "Unknow department",
         });
       });
     });
@@ -68,7 +68,7 @@ export function useHomeRealm() {
 
   function deleteAllFields() {
     realm.write(() => {
-      const allFields = realm.objects('Field');
+      const allFields = realm.objects("Field");
       realm.delete(allFields);
     });
   }
@@ -77,7 +77,7 @@ export function useHomeRealm() {
     deleteAllFields();
     realm.write(() => {
       fields.forEach((field) => {
-        realm.create('Field', {
+        realm.create("Field", {
           _id: Realm.BSON.ObjectId(field._id),
           fieldName: field.fieldName,
         });

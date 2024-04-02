@@ -1,9 +1,24 @@
-import API from '../api';
+import API from "../api";
+import { authHeader } from "../requestHeader";
 
 const getQuestionsSv = (params) => {
-  return API.get('questions', {
+  return API.get("questions", {
     params: params,
   });
 };
 
-export { getQuestionsSv };
+const createQuestionSv = (data) => {
+  const tokenHeader = authHeader();
+  return API.post("user/questions", data, {
+    headers: { "Content-Type": "multipart/form-data", ...tokenHeader },
+  });
+};
+
+const getMyQuestionsSv = (params) => {
+  return API.get("user/questions", {
+    params: params,
+    headers: authHeader(),
+  });
+};
+
+export { getQuestionsSv, createQuestionSv, getMyQuestionsSv };

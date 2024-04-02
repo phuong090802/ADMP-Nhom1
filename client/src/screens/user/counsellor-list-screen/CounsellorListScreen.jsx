@@ -1,5 +1,12 @@
+import { CounsellorListContent } from "./CounsellorListContent";
+import { CounsellorListStore } from "./CounsellorListStore";
+
 const CounsellorListScreen = () => {
-  return <></>;
+  return (
+    <CounsellorListStore>
+      <CounsellorListContent />
+    </CounsellorListStore>
+  );
 };
 
 export default CounsellorListScreen;

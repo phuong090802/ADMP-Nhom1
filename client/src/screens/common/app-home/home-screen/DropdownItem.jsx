@@ -1,17 +1,17 @@
-import { useCallback } from 'react';
-import { Image, Text, View } from 'react-native';
+import { useCallback } from "react";
+import { Image, Text, View } from "react-native";
 
-import user_avatar from '../../../../../assets/images/user_avatar.jpg';
+import user_avatar from "../../../../../assets/images/user_avatar.jpg";
 
-import { dropdownItemStyles } from './const';
+import { dropdownItemStyles } from "./const";
 
-import IconButton from '../../../../atom/icon-button';
-import Octicon from '../../../../atom/octicon';
+import IconButton from "../../../../atom/icon-button";
+import Octicon from "../../../../atom/octicon";
 
-import { dateTimeToDate } from '../../../../util/convert.util';
+import { dateTimeToDate } from "../../../../util/convert.util";
 
-import AnswerBox from './AnswerBox';
-import QuestionBox from './QuestionBox';
+import AnswerBox from "./AnswerBox";
+import QuestionBox from "./QuestionBox";
 
 const DropdownItem = ({ data, isOpen, onSelect }) => {
   const handleSelect = useCallback(() => {
@@ -35,18 +35,20 @@ const DropdownItem = ({ data, isOpen, onSelect }) => {
                 <Text style={dropdownItemStyles.inforText}>
                   {data.user.fullName}
                 </Text>
-                <Octicon name={'clock'} size={16} />
+                <Octicon name={"clock"} size={16} />
                 <Text style={dropdownItemStyles.inforText}>
                   {dateTimeToDate(data.createdAt)}
                 </Text>
-                <Octicon name={'eye'} size={16} />
-                <Text style={dropdownItemStyles.inforText}>{data.views}</Text>
+                <Octicon name={"eye"} size={16} />
+                <Text style={dropdownItemStyles.inforText}>
+                  {data.views || "0"}
+                </Text>
               </View>
             </View>
             <View style={dropdownItemStyles.icon}>
               <IconButton
-                iconName={'triangle-down'}
-                iconColor={'#fff'}
+                iconName={"triangle-down"}
+                iconColor={"#fff"}
                 iconSize={20}
                 onClick={handleSelect}
               />
