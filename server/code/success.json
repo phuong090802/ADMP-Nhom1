@@ -1,0 +1,492 @@
+{
+  "success": [
+    {
+      "code": "2001",
+      "message": "Tạo tài khoản thành công",
+      "detail": ""
+    },
+    {
+      "code": "2002",
+      "message": "Email khả dụng",
+      "detail": "Kiểm tra email trước khi tạo tài khoản"
+    },
+    {
+      "code": "2003",
+      "message": "Số điện thoại khả dụng",
+      "detail": "Kiểm tra số điện thoại trước khi tạo tài khoản"
+    },
+    {
+      "code": "2004",
+      "message": "Đăng xuất thành công",
+      "detail": ""
+    },
+    {
+      "code": "2005",
+      "message": "",
+      "detail": "Lấy thông tin cá nhân thành công"
+    },
+    {
+      "code": "2006",
+      "message": "Đã gửi email đến: ${user.email}",
+      "detail": "Gửi OTP khi yêu cầu đặt lại mật khẩu thành công"
+    },
+    {
+      "code": "2007",
+      "message": "",
+      "detail": "Xác thực OTP sau khi yêu cầu đặt lại mật khẩu thành công"
+    },
+    {
+      "code": "2008",
+      "message": "Đặt lại mật khẩu thành công",
+      "detail": ""
+    },
+    {
+      "code": "2009",
+      "message": "Email hợp lệ",
+      "detail": "Kiểm tra email trước khi yêu cầu quên mật khẩ"
+    },
+    {
+      "code": "2010",
+      "message": "Cập nhật ảnh đại diện thành công",
+      "detail": "Người dùng cập nhật ảnh đại diện thành công"
+    },
+    {
+      "code": "2011",
+      "message": "Cập nhật khoa thành công",
+      "detail": "Cập nhật tên khoa thành công"
+    },
+    {
+      "code": "2012",
+      "message": "Thêm ${roleStr} thành công",
+      "detail": "Thêm nhân sự vào hệ thống (COUNSELLOR, SUPERVISOR)"
+    },
+    {
+      "code": "2013",
+      "message": "Thêm tư vấn viên vào khoa thành công",
+      "detail": "Thêm tư vấn viên chưa có khoa vào 1 khoa cụ thể"
+    },
+    {
+      "code": "2014",
+      "message": "Cập nhật trưởng khoa thành công",
+      "detail": "nếu khoa có trưởng khoa rồi -> cập nhật role trưởng khoa cũ thành COUNSELLOR cập nhật trưởng khoa mới role thành DEPARTMENT_HEAD"
+    },
+    {
+      "code": "2015",
+      "message": "",
+      "detail": "Khóa/mở khóa người dùng (tất cả các role ngoại trừ ADMIN)"
+    },
+    {
+      "code": "2016",
+      "message": "",
+      "detail": "Xem thông tin của người dùng với cấu trúc được yêu cầu"
+    },
+    {
+      "code": "2017",
+      "message": "Cập nhật thông tin thành công",
+      "detail": "người dùng cập nhật fullName, occupation (tất cả các role)"
+    },
+    {
+      "code": "2018",
+      "message": "Thêm lĩnh vực thành công",
+      "detail": ""
+    },
+    {
+      "code": "2019",
+      "message": "Thêm khoa thành công",
+      "detail": ""
+    },
+    {
+      "code": "2020",
+      "message": "newStrStatus + ' thành công'",
+      "detail": "Khóa/mở khóa khoa"
+    },
+    {
+      "code": "2021",
+      "message": "",
+      "detail": "Lấy danh sách người dùng trong hệ thống (phân trang, tìm kiếm, lọc)"
+    },
+    {
+      "code": "2022",
+      "message": "",
+      "detail": "Lấy danh sách tư vấn viên trong 1 khoa cụ thể bằng id (phân trang, tìm kiếm, lọc)"
+    },
+    {
+      "code": "2023",
+      "message": "",
+      "detail": "lấy danh sách khoa (phân trang, tìm kiếm, lọc)"
+    },
+    {
+      "code": "2024",
+      "message": "Mã xác thực hợp lệ",
+      "detail": "kiểm tra mã xác thực trước khi nhập mã xác thực để đặt lại mật khẩu"
+    },
+    {
+      "code": "2025",
+      "message": "Tên khoa khả dụng",
+      "detail": "Kiểm tra tên khoa trước khi tạo khoa mới"
+    },
+    {
+      "code": "2026",
+      "message": "Tên khoa khả dụng",
+      "detail": "Kiểm tra tên khoa trước khi cập nhật tên khoa"
+    },
+    {
+      "code": "2027",
+      "message": "Tên lĩnh vực khả dụng",
+      "detail": ""
+    },
+    {
+      "code": "2028",
+      "message": "Cập nhật tên lĩnh vực thành công",
+      "detail": "Cập nhật lĩnh vực của khoa"
+    },
+    {
+      "code": "2029",
+      "message": "Tên lĩnh vực khả dụng",
+      "detail": "Kiểm tra tên lĩnh vực trước khi cập tên mới"
+    },
+    {
+      "code": "2030",
+      "message": "Đặt câu hỏi thành công",
+      "detail": ""
+    },
+    {
+      "code": "2031",
+      "message": "Trả lời câu hỏi thành công",
+      "detail": "Tư vấn viên, trưởng khoa trả lời câu hỏi"
+    },
+    {
+      "code": "2032",
+      "message": "Duyệt câu tả lời thành công",
+      "detail": "Duyệt câu trả lời"
+    },
+    {
+      "code": "2033",
+      "message": "",
+      "detail": "Lấy danh sách câu hỏi phân trang, tìm kiếm, lọc với trạng thái publicly-answered-and-approved"
+    },
+    {
+      "code": "2034",
+      "message": "Đã gửi email đến: ${user.email}",
+      "detail": "Gửi email thành công (xác thực email)"
+    },
+    {
+      "code": "2035",
+      "message": "Xác thực email thành công",
+      "detail": "Xác nhận email"
+    },
+    {
+      "code": "2036",
+      "message": "Email khả dụng",
+      "detail": "Xác thực email (cần xác thực người dùng)"
+    },
+    {
+      "code": "2037",
+      "message": "Mã xác thực hợp lệ",
+      "detail": "Xác nhận email (cần xác thực người dùng)"
+    },
+    {
+      "code": "2038",
+      "message": "",
+      "detail": "Lấy danh sách khoa (đặt câu hỏi, lọc câu hỏi)"
+    },
+    {
+      "code": "2039",
+      "message": "",
+      "detail": "Lấy danh sách lĩnh vực (đặt câu hỏi, lọc câu hỏi)"
+    },
+    {
+      "code": "2040",
+      "message": "",
+      "detail": "Lấy danh sách lĩnh vực (phân trang, tìm kiếm, lọc)"
+    },
+    {
+      "code": "2041",
+      "message": "",
+      "detail": "Lấy danh tư vấn viên dùng trong khoa (phân trang, tìm kiếm, lọc)"
+    },
+    {
+      "code": "2042",
+      "message": "Thêm tư vấn viên thành công",
+      "detail": "Trưởng khoa thêm tư vấn viên thành công"
+    },
+    {
+      "code": "2043",
+      "message": "Xóa lĩnh vực của tư vấn viên thành công",
+      "detail": "Cập nhật (xóa) lĩnh vực cho tư vấn viên"
+    },
+    {
+      "code": "2044",
+      "message": "newStrIsEnabled + ' tài khoản thành công'",
+      "detail": "Trưởng khoa khóa/mở khóa tài khoản tư vấn viên"
+    },
+    {
+      "code": "2045",
+      "message": "",
+      "detail": "Tư vấn viên lấy danh sách feedback của họ (mặc định mới nhất đến củ nhất, không phân trang) - giảm dần z -> a"
+    },
+    {
+      "code": "2046",
+      "message": "Xóa phản hồi thành công",
+      "detail": "Tư vấn viên xóa phản hồi của họ thành công (xóa bằng Id)"
+    },
+    {
+      "code": "2047",
+      "message": "Xóa danh sách phản hồi thành công",
+      "detail": ""
+    },
+    {
+      "code": "2048",
+      "message": "Thêm tư vấn viên từ file .csv thành công",
+      "detail": ""
+    },
+    {
+      "code": "2049",
+      "message": "Đổi mật khẩu thành công",
+      "detail": ""
+    },
+    {
+      "code": "2050",
+      "message": "",
+      "detail": "Lấy danh sách câu hỏi của bản thân đã hỏi"
+    },
+    {
+      "code": "2051",
+      "message": "Trả lời câu hỏi riêng tư thành công",
+      "detail": ""
+    },
+    {
+      "code": "2052",
+      "message": "",
+      "detail": "Trả Id của message thành công"
+    },
+    {
+      "code": "2053",
+      "message": "",
+      "detail": "Lấy danh sách các cuộc trò chuyện của bản thân thành công"
+    },
+    {
+      "code": "2054",
+      "message": "",
+      "detail": "Lấy danh sách tin nhắn trong cuộc đối thoại thành công (conversationId)"
+    },
+    {
+      "code": "2055",
+      "message": "Gửi phản hồi thành công",
+      "detail": "Trưởng khoa gửi phản hồi thành công"
+    },
+    {
+      "code": "2056",
+      "message": "",
+      "detail": "Gửi feedback tới tư vấn viên thành công"
+    },
+    {
+      "code": "2057",
+      "details": [
+        {
+          "message": "",
+          "detail": "Trưởng khoa/tư vấn viên gửi tin nhắn thành công"
+        },
+        {
+          "message": "",
+          "detail": "Gửi tin nhắn thành công (tất cả các role)"
+        }
+      ]
+    },
+    {
+      "code": "2058",
+      "message": "",
+      "detail": "Gửi thông báo câu hỏi đã được trả lời (câu trả lời đã được trưởng khoa duyệt)"
+    },
+    {
+      "code": "2059",
+      "details": [
+        {
+          "message": "",
+          "detail": "Trả lời câu hỏi thành công. Nếu role là tư vấn viên sẽ gửi thông báo để trưởng khoa duyệt"
+        },
+        {
+          "message": "",
+          "detail": "Trả lời câu hỏi thành công. Nếu role là tư vấn viên sẽ gửi thông báo để trưởng khoa duyệt"
+        }
+      ]
+    },
+    {
+      "code": "2060",
+      "message": "",
+      "detail": "Lấy danh sách câu hỏi chung của khoa thành công (lọc, tìm kiếm, sắp xếp)"
+    },
+    {
+      "code": "2061",
+      "message": "",
+      "detail": "Lấy danh sách câu hỏi chung của khoa thành công (lọc, tìm kiếm, sắp xếp)"
+    },
+    {
+      "code": "2062",
+      "message": "",
+      "detail": "Tư vấn viên/trưởng khoa lấy danh sách câu hỏi chưa được trả lời (lọc, tìm kiếm, sắp xếp)"
+    },
+    {
+      "code": "2063",
+      "message": "",
+      "detail": "Thống kê phòng ban thành công"
+    },
+    {
+      "code": "2064",
+      "message": "",
+      "detail": "Lấy danh sách nhân sự trong khoa"
+    },
+    {
+      "code": "2065",
+      "message": "",
+      "detail": "admin thống kê câu hỏi trong khoa (trả lời công khai và đã được duyệt, trả lời riêng tư)"
+    },
+    {
+      "code": "2066",
+      "message": "Xóa câu hỏi chung thành công",
+      "detail": ""
+    },
+    {
+      "code": "2067",
+      "message": "Cập nhật câu hỏi chung thành công",
+      "detail": ""
+    },
+    {
+      "code": "2068",
+      "message": "Tạo câu hỏi chung thành công",
+      "detail": ""
+    },
+    {
+      "code": "2069",
+      "message": "Chuyển tiếp câu hỏi thành công",
+      "detail": ""
+    },
+    {
+      "code": "2070",
+      "message": "",
+      "detail": "Kiểm tra email đã được xác thực hay chưa"
+    },
+    {
+      "code": "2071",
+      "details": [
+        {
+          "message": "",
+          "detail": "Đặt câu hỏi thành công và lấy danh, thông báo câu hỏi mới tới tư vấn viên trong khoa có cùng lĩnh vực"
+        },
+        {
+          "message": "",
+          "detail": "Tư vấn viên kiểm tra có câu hỏi cần trả lời hay không"
+        },
+        {
+          "message": "",
+          "detail": "Trưởng khoa kiểm tra có câu hỏi cần trả lời hay không"
+        }
+      ]
+    },
+    {
+      "code": "2072",
+      "message": "",
+      "detail": "Gửi set token cookie, gửi thông tin user, access token khi đăng nhập hoặc refresh token thành công"
+    },
+    {
+      "code": "2073",
+      "message": "${newStrStatus} lĩnh vực thành công",
+      "detail": "Khóa/mở khóa lĩnh vực thành công"
+    },
+    {
+      "code": "2074",
+      "message": "",
+      "detail": "Lấy danh sách lĩnh vực của ban thân nếu là counsellor, lấy danh sách lĩnh vực của khoa nếu là department head (những field có isActive = true)"
+    },
+    {
+      "code": "2075",
+      "message": "Tạo tin tức thành công",
+      "detail": ""
+    },
+    {
+      "code": "2076",
+      "message": "Cập nhật tin tức thành công",
+      "detail": ""
+    },
+    {
+      "code": "2077",
+      "message": "Xóa tin tức thành công",
+      "detail": ""
+    },
+    {
+      "code": "2078",
+      "message": "",
+      "detail": "Lấy danh sách tin tức thành công"
+    },
+    {
+      "code": "2079",
+      "message": "Thêm push token thành công",
+      "detail": ""
+    },
+    {
+      "code": "2080",
+      "message": "",
+      "detail": "Thống kê danh sách câu hỏi trong hệ thống thành công"
+    },
+    {
+      "code": "2081",
+      "message": "",
+      "detail": "Đếm số số khoa có isActive: true trong hệ thống. Đếm số số lĩnh vực có isActive: true trong hệ thống. Đếm số người có isEnabled: true dùng trong hệ thống. Đếm số câu hỏi trong hệ thống"
+    },
+    {
+      "code": "2082",
+      "message": "",
+      "detail": "Lấy danh sách thông báo"
+    },
+    {
+      "code": "2083",
+      "message": "",
+      "detail": "Trưởng khoa lấy danh sách câu trả lời cần duyệt của khoa học"
+    },
+    {
+      "code": "2084",
+      "message": "",
+      "detail": "Admin/supervisor thống kê lĩnh vực và số câu hỏi thuộc lĩnh vực"
+    },
+    {
+      "code": "2085",
+      "message": "",
+      "detail": "Trưởng khoa đếm số tư vấn viên của khoa"
+    },
+    {
+      "code": "2086",
+      "message": "",
+      "detail": "Trưởng khoa đếm số câu hỏi chung trong khoa"
+    },
+    {
+      "code": "2087",
+      "message": "",
+      "detail": "Tư vấn viên đếm số câu hỏi đã trả lời trong một khoảng thời gian"
+    },
+    {
+      "code": "2088",
+      "message": "",
+      "detail": "Admin/supervisor đếm số lượng tài khoản đã tạo trong khoảng thời gian"
+    },
+    {
+      "code": "2089",
+      "message": "",
+      "detail": "department-head thống kê số câu hỏi của trưởng khoa (trả lời công khai và đã được duyệt, trả lời riêng tư)"
+    },
+    {
+      "code": "2090",
+      "message": "",
+      "detail": "Admin/supervisor thống kê lĩnh vực và số câu hỏi thuộc lĩnh vực"
+    },
+    {
+      "code": "2091",
+      "message": "",
+      "detail": "Trưởng khoa thống kê lĩnh vực và số câu hỏi thuộc lĩnh vực trong khoa"
+    },
+    {
+      "code": "2092",
+      "message": "",
+      "detail": "Lấy danh sách các câu hỏi đã được trả lời công khai và đã được duyệt (cho di động)"
+    }
+  ]
+}
