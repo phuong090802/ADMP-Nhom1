@@ -17,8 +17,6 @@ export const DropdownItem = ({ data, isOpen, onSelect }) => {
     if (onSelect) onSelect();
   }, [onSelect]);
 
-  console.log("myquestionData", data);
-
   return (
     data && (
       <>

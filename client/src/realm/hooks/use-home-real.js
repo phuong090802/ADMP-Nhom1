@@ -18,6 +18,7 @@ export function useHomeRealm() {
   }
 
   function saveAllQuestions(questions) {
+    deleteAllQuestions();
     realm.write(() => {
       questions.forEach((question) => {
         realm.create("Question", {

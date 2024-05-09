@@ -1,22 +1,25 @@
-import { Alert, StyleSheet, Text, TextInput, View } from "react-native";
-import { fonts } from "../../../../constant";
-import MySelect from "../../../molecule/my-select";
 import { createRef, useContext, useEffect, useState } from "react";
+import { Alert, StyleSheet, Text, View } from "react-native";
 import QuillEditor from "react-native-cn-quill";
+import { fonts } from "../../../../constant";
+import MyButton from "../../../atom/my-button";
+import { useAuthorSocketHook } from "../../../hooks/useAuthorSocketHook";
 import IconInput from "../../../molecule/icon-input";
+import MySelect from "../../../molecule/my-select";
 import {
   getDepFieldsSv,
   getDepsSv,
 } from "../../../services/guest/department.sv";
-import { CreateQuestionContext } from "./CreateQuestionStore";
 import {
   transformDepartments,
   transformsFields,
 } from "../../../util/convert.util";
-import { createQuestionSv } from "../../../services/guest/question.sv";
-import MyButton from "../../../atom/my-button";
+import { CreateQuestionContext } from "./CreateQuestionStore";
+// import { createQuestion } from "../../../socket/guest/authorSocket";
 
 const CreateQuestionForm = () => {
+  const { connected, createQuestion } = useAuthorSocketHook();
+
   const initQuestionData = {
     departmentId: "",
     fieldId: "",
@@ -32,6 +35,8 @@ const CreateQuestionForm = () => {
   const [chosenDep, setChosenDep] = useState("");
 
   const _editor = createRef();
+
+  const [key, setKey] = useState(1);
 
   const getAllDepartments = async () => {
     try {
@@ -83,12 +88,6 @@ const CreateQuestionForm = () => {
   };
 
   const submitValidate = () => {
-    console.log(
-      !questionData.content ||
-        !questionData.title ||
-        !chosenDep ||
-        !questionData.fieldId
-    );
     if (
       !questionData.content ||
       !questionData.title ||
@@ -104,24 +103,25 @@ const CreateQuestionForm = () => {
   };
 
   const handleCreateQuestion = async () => {
-    if (!submitValidate()) return;
+    if (!connected || !submitValidate()) return;
     const temp = { ...questionData, departmentId: chosenDep };
     console.log(temp);
-    const submitData = new FormData();
-    Object.entries(temp).map(([key, value]) => {
-      submitData.append(key, value);
-    });
+    // const submitData = new FormData();
+    // Object.entries(temp).map(([key, value]) => {
+    //   submitData.append(key, value);
+    // });
     try {
-      const response = await createQuestionSv(submitData);
-      Alert.alert(response.message || "Đặt câu hỏi thành công");
+      const response = await createQuestion(temp);
+      Alert.alert("Đặt câu hỏi thành công");
       setQuestionData(initQuestionData);
+      _editor.setContents([{ insert: "" }]);
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <View style={style.content}>
+    <View style={style.content} key={key}>
       <View style={style.box}>
         <Text style={style.label}>Khoa:</Text>
         <MySelect

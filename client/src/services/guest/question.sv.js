@@ -2,6 +2,7 @@ import API from "../api";
 import { authHeader } from "../requestHeader";
 
 const getQuestionsSv = (params) => {
+  console.log(params.skip);
   return API.get("questions", {
     params: params,
   });

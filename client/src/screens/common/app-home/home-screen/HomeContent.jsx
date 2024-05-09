@@ -28,6 +28,7 @@ const HomeContent = () => {
     saveAllDepartments,
     saveAllFields,
     saveAllQuestions,
+    params,
     deleteAllQuestions,
     departments: storedDepartments,
     fields: storedFields,
@@ -38,10 +39,15 @@ const HomeContent = () => {
   const [endReached, setEndReached] = useState(false);
 
   function setQuestions(questions) {
-    deleteAllQuestions();
+    // deleteAllQuestions();
+    let mergeQuestions;
     homeContext.setQuestions((prev) => {
-      const mergeQuestions = [...prev, ...questions];
-      saveAllQuestions(mergeQuestions);
+      if (params?.keyword === "") {
+        mergeQuestions = [...questions];
+      } else {
+        mergeQuestions = [...prev, ...questions];
+      }
+      // saveAllQuestions(mergeQuestions);
       return mergeQuestions;
     });
   }
@@ -96,10 +102,10 @@ const HomeContent = () => {
       setQuestions(questions);
       homeContext.setPages(response.pages);
     } catch (error) {
-      if (homeContext.questions.length === 0) {
-        homeContext.setQuestions(storedQuestions);
-      }
-      console.log("Lỗi khi lấy dữ liệu câu hỏi!", error);
+      // if (homeContext.questions.length === 0) {
+      //   homeContext.setQuestions(storedQuestions);
+      // }
+      // console.log("Lỗi khi lấy dữ liệu câu hỏi!", error);
     } finally {
       setEndReached(false);
       setLoading(false);
@@ -147,7 +153,6 @@ const HomeContent = () => {
       contentSize.height - paddingToBottom
     );
   };
-
 
   return (
     <>

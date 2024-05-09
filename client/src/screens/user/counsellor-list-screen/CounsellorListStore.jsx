@@ -28,7 +28,6 @@ export const CounsellorListStore = ({ children }) => {
   const getCounsellors = async () => {
     try {
       const response = await getCounsellorListSv(params);
-      console.log(response);
       setCounsellors(response.staffs);
       setPages(response.pages);
     } catch (error) {

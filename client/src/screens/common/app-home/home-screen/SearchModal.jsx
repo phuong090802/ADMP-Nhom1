@@ -42,7 +42,6 @@ const SearchModal = () => {
   );
 
   const handleSearchChange = useCallback((value) => {
-    console.log('search value', value);
     setParams((prev) => ({ ...prev, keyword: value }));
   }, []);
 

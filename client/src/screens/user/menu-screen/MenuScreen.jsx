@@ -4,9 +4,16 @@ import MyIcon from "../../../atom/my-icon";
 import Layout from "../../../template/layout";
 import { useNavigation } from "@react-navigation/native";
 import TitleBar from "../../../molecule/title-bar";
+import { useContext } from "react";
+import { DataContext } from "../../../store/Store";
 
 const MenuScreen = () => {
   const navigation = useNavigation();
+
+  const { user } = useContext(DataContext);
+
+  console.log(user);
+
   return (
     <Layout>
       <View style={styles.rootContainer}>
@@ -14,6 +21,24 @@ const MenuScreen = () => {
           title={"Menu người dùng"}
           onBack={() => navigation.navigate("AppHome")}
         />
+
+        <View style={{ marginTop: 8, gap: 8 }}>
+          <InforBox
+            icon={<MyIcon iconPackage={"Feather"} name={"user"} size={24} />}
+            label={"Họ & Tên"}
+            data={user.fullName}
+          />
+          <InforBox
+            icon={<MyIcon iconPackage={"Fontisto"} name={"email"} size={24} />}
+            label={"Email"}
+            data={user.email}
+          />
+          <InforBox
+            icon={<MyIcon iconPackage={"SimpleLineIcons"} name={"phone"} size={24} />}
+            label={"Số điện thoại"}
+            data={user.phone}
+          />
+        </View>
         <View style={{ marginTop: 8 }}>
           <TouchableOpacity
             style={styles.button}
@@ -21,7 +46,7 @@ const MenuScreen = () => {
               navigation.navigate("AskedQuestion");
             }}
           >
-            <Text style={styles.title}>Câu hỏi đã hỏi</Text>
+            <Text style={[styles.title, { fontSize: 18 }]}>Câu hỏi đã hỏi</Text>
           </TouchableOpacity>
           <View style={styles.icon}>
             <MyIcon
@@ -50,6 +75,27 @@ const MenuScreen = () => {
         </View> */}
       </View>
     </Layout>
+  );
+};
+
+const InforBox = ({ icon, label, data }) => {
+  return (
+    <View style={[styles.button, { flexDirection: "row" }]}>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 4,
+          width: "45%",
+        }}
+      >
+        {icon}
+        <Text style={[styles.title, { fontSize: 16 }]}>{label}:</Text>
+      </View>
+      <Text style={{ fontFamily: fonts.BahnschriftRegular, fontSize: 16, flex: 1 }}>
+        {data || "Chưa cập nhật!"}
+      </Text>
+    </View>
   );
 };
 

@@ -18,7 +18,6 @@ export const AskedQuestionStore = ({ children }) => {
     console.log("getMyQuestions");
     try {
       const response = await getMyQuestionsSv();
-      console.log("getMyQuestions", response);
     } catch (error) {
       console.log(error);
     }

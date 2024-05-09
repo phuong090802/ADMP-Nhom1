@@ -52,17 +52,27 @@ const Header = () => {
       </View>
       <View style={headerStyles.function}>
         {user.isLoggedIn ? (
-          <>
+          <View style={{flexDirection: "row", gap: 16}}>
             <TouchableOpacity>
-              <Octicon name={"comment-discussion"}/>
+              <Octicon name={"comment-discussion"} />
             </TouchableOpacity>
-            <TouchableOpacity  onPress={()=>navigation.navigate("Noti")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Noti")}>
               <Octicon name={"bell"} />
+              <View
+                style={{
+                  borderWidth: 5,
+                  position: "absolute",
+                  borderColor: colors.error,
+                  borderRadius: 999,
+                  right: 0,
+                  top: -3
+                }}
+              ></View>
             </TouchableOpacity>
             <TouchableOpacity onPress={logOut}>
               <Octicon name={"sign-out"} />
             </TouchableOpacity>
-          </>
+          </View>
         ) : (
           <MyButton
             title={"Đăng nhập"}

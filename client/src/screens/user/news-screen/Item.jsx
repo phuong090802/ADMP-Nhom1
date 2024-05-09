@@ -30,14 +30,18 @@ export const Item = ({ data }) => {
   const fileComponent = useMemo(() => {
     const returnComponent = (
       <View style={{ flexDirection: "row" }}>
-        <Text>Xem thông tin chi tiết: </Text>
-        <TouchableOpacity onPress={openLink}>
+        {/* <Text>Xem thông tin chi tiết: </Text> */}
+        <Image
+          source={{ uri: data.file }}
+          style={{ flex: 1, resizeMode: "contain", width: null, height: 150 }}
+        />
+        {/* <TouchableOpacity onPress={openLink}>
           <Text
             style={{ color: colors.primary, textDecorationLine: "underline" }}
           >
             Tại đây
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     );
     return returnComponent;
@@ -67,5 +71,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: fonts.BahnschriftRegular,
+    fontSize: 16,
   },
 });
