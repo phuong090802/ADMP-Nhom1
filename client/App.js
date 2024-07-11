@@ -3,7 +3,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import { StyleSheet, View } from "react-native";
-import "react-native-get-random-values";
 
 import AppHome from "./src/screens/common/app-home";
 import ForgotPassword from "./src/screens/common/forgot-password";

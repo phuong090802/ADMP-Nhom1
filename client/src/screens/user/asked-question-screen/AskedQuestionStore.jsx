@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import {
-  getMyQuestionSv,
-  getMyQuestionsSv,
+  getMyQuestionsSv
 } from "../../../services/guest/question.sv";
 
 export const AskedQuestionContext = createContext({
